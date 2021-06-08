@@ -11,97 +11,97 @@
 ## Plan for each tab:
 (Bullet points indicate rough/minimum points to cover, initials in brackets indicate who will complete)
 
-[] Info (CB)
+- [ ] Info (CB)
 - What the app is
 - How to use it
 - Important points
 
-SECTION 1
-[] What is Shiny, actually? (CB)
+### SECTION 1
+- [ ] What is Shiny, actually? (CB)
 - What a web app is
 - How shiny converts R to HTML, JS and CSS
 - Shiny dependencies (httpuv etc.)
 
-[] The reactive graph (CB)
+- [ ] The reactive graph (CB)
 - How reactivity makes a pull relationship look like a push relationship
 - Graph showing the flushing cycle and reactive graph
 
-[] Controlling reactivity (CB)
+- [ ] Controlling reactivity (CB)
 - Using debounce & throttle
 - Using invalidateLater & reactivePoll
 - Using isolate & req
 
-[] reactive vs observe (CB)
+- [ ] reactive vs observe (CB)
 - Consumers and producers, contexts
 - When to use reactive vs observe
 - Including observeEvent vs eventReactive
 
-[] Structuring an app (CB)
+- [ ] Structuring an app (CB)
 - As a package
 - File naming conventions
 - Workflow (using roxygen2, devtools, usethis etc.)
 - Using modules (briefly mention, covered in next tab)
 
-[] Shiny modules (CB)
+- [ ] Shiny modules (CB)
 - The 1000 button problem
 - Namespacing
 - Using modules effectively
 
-SECTION 2
-[] Improving UI with CSS
+### SECTION 2
+- [ ] Improving UI with CSS
 - Key choices when designing shiny apps (choose between shinydashboard[Plus] or shiny+bslib)
 - What is CSS and how to include in shiny
 - Using Sass
 
-[] Improving UX with JS
+- [ ] Improving UX with JS
 - What is JS
 - Ways to include JS in shiny
 - Some example use cases
 - shinyjs and how to use it
 
-[] The attaliverse
+- [ ] The attaliverse
 - What is attaliverse
 - List all the packages
 - Some details of each, minimum include some detail for each of (shinyalert, shinycssloaders, shinydisconnect, shinybrowser)
 
-[] Extending shiny
+- [ ] Extending shiny
 - The power of javascript
 - The htmlwidgets package
 - Packages which extend/improve shiny (e.g. shinyhelper)
 
-[] Custom shiny inputs (CB)
+- [ ] Custom shiny inputs (CB)
 - Types of inputs in shiny & other packages
 - Input bindings and events
 - Creating your own input element
 - charpente
 
-SECTION 3
-[] The session object
+### SECTION 3
+- [ ] The session object
 - Apps, sessions and users
 - Elements of the session object and what they are useful for
 - DfE-specific
 
-[] Tracking usage
+- [ ] Tracking usage
 - Why it can be useful
 - Custom methods (SQL, onSessionEnded etc.)
 - shinylogs
 
-[] Advanced Visualisation 1 (plotly)
+- [ ] Advanced Visualisation 1 (plotly)
 - The basics of plotly
 - plotly vs ggplot2
 - Possibilities with plotly
 
-[] Advanced Visualisation 2 (r2d3 + other js libs)
+- [ ] Advanced Visualisation 2 (r2d3 + other js libs)
 - When to use r2d3 vs plotly/ggplot2
 - Extent of control
 - How to use js visualisations in shiny
 
-[] Error handling & Debugging
+- [ ] Error handling & Debugging
 - base R error handling (tryCatch, withRestarts)
 - shiny-specific error handling (validate, safeError)
 - unit testing (briefly) and shiny testing (shinytest, testServer, testModule)
 
-[] Optimisation
+- [ ] Optimisation
 - profvis
 - Caching
 - Async/futureverse

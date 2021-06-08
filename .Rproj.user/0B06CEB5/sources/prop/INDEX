@@ -1,3 +1,5 @@
+~%2FCoffee%20%26%20Coding%2FadvancedShiny%2F.Rbuildignore="33A641DE"
+~%2FCoffee%20%26%20Coding%2FadvancedShiny%2F.gitignore="AC2DC4EE"
 ~%2FCoffee%20%26%20Coding%2FadvancedShiny%2FDESCRIPTION="A42E7503"
 ~%2FCoffee%20%26%20Coding%2FadvancedShiny%2FLICENSE="B41506DC"
 ~%2FCoffee%20%26%20Coding%2FadvancedShiny%2FNAMESPACE="DFAC9D12"
@@ -29,6 +31,7 @@
 ~%2FCoffee%20%26%20Coding%2FadvancedShiny%2FR%2Fmod_x_template.R="0EFCE82F"
 ~%2FCoffee%20%26%20Coding%2FadvancedShiny%2FR%2FrunApp.R="766F7AF1"
 ~%2FCoffee%20%26%20Coding%2FadvancedShiny%2FR%2Frun_app.R="BD54DA52"
+~%2FCoffee%20%26%20Coding%2FadvancedShiny%2FREADME.md="96AAB41C"
 ~%2FCoffee%20%26%20Coding%2FadvancedShiny%2FTODO.md="B605C74B"
 ~%2FCoffee%20%26%20Coding%2FadvancedShiny%2Finst%2Fapp%2Fglobal.R="E84E5C7C"
 ~%2FCoffee%20%26%20Coding%2FadvancedShiny%2Finst%2Fapp%2Fserver.R="A950411B"
