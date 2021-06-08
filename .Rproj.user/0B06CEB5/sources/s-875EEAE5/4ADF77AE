@@ -1,0 +1,27 @@
+{
+    "id": "4ADF77AE",
+    "path": "~/Coffee & Coding/advancedShiny/inst/app/ui.R",
+    "project_path": "inst/app/ui.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1623066940959.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "138,25",
+        "scrollLine": "116"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1623164073,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1623164073393,
+    "read_only": false,
+    "read_only_alternatives": []
+}
