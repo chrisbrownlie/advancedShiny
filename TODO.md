@@ -76,14 +76,14 @@
 - charpente
 
 ### SECTION 3
-- [ ] The session object
+- [ ] The session object (CB)
 - Apps, sessions and users
 - Elements of the session object and what they are useful for
 - DfE-specific
 
 - [ ] Tracking usage
 - Why it can be useful
-- Custom methods (SQL, onSessionEnded etc.)
+- Custom methods (observers, save to sql etc.)
 - shinylogs
 
 - [ ] Advanced Visualisation 1 (plotly)
