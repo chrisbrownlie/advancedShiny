@@ -1,7 +1,6 @@
-\.*\.Rproj
-^\.Rproj\.user
+*.Rproj
+.Rproj.user
 .Rprofile
-.Rproj.user/*
 .Rhistory
 .RData
 .Rbuildignore
