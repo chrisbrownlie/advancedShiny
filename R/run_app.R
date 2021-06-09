@@ -23,7 +23,7 @@ run_IAS_app <- function() {
 
   } else {
 
-    x <- shinyAppDir(appDir = system.file("app",
+    shinyAppDir(appDir = system.file("app",
                                      package = "advancedShiny"))
 
   }
