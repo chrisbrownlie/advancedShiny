@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 .Rprofile
 .Rproj.user/*
+.Rhistory
+.RData
