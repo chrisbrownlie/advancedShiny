@@ -14,7 +14,8 @@ tab_sessionObject_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Session Object")
+    h3("Session Object",
+       class = "tab-title")
   )
 
 }

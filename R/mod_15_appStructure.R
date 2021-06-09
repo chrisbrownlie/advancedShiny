@@ -14,7 +14,8 @@ tab_appStructure_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("App Structure")
+    h3("App Structure",
+       class = "tab-title")
   )
 
 }

@@ -14,7 +14,8 @@ tab_customInputs_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Custom Shiny Inputs")
+    h3("Custom Shiny Inputs",
+       class = "tab-title")
   )
 
 }

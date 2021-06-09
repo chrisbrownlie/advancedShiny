@@ -14,7 +14,8 @@ tab_usingCSS_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Using CSS")
+    h3("Using CSS",
+       class = "tab-title")
   )
 
 }

@@ -16,7 +16,8 @@ tab_modCCx_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("modTCx")
+    h3("modTCx",
+       class = "tab-title")
   )
 
 }

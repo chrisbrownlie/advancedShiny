@@ -14,7 +14,8 @@ tab_shinyModules_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Shiny Modules")
+    h3("Shiny Modules",
+       class = "tab-title")
   )
 
 }

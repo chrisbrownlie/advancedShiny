@@ -14,7 +14,8 @@ tab_reactiveObjects_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Reactive Objects")
+    h3("Reactive Objects",
+       class = "tab-title")
   )
 
 }

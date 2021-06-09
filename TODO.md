@@ -67,7 +67,7 @@
 - [ ] Extending shiny
 - The power of javascript
 - The htmlwidgets package
-- Packages which extend/improve shiny (e.g. shinyhelper)
+- Packages which extend/improve shiny (e.g. shinyhelper, shinyFeedback, shinyEffects)
 
 - [ ] Custom shiny inputs (CB)
 - Types of inputs in shiny & other packages

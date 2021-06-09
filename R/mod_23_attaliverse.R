@@ -14,7 +14,8 @@ tab_attaliverse_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Attali-verse")
+    h3("Attali-verse",
+       class = "tab-title")
   )
 
 }

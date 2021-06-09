@@ -14,7 +14,8 @@ tab_usingJS_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Using Javascript")
+    h3("Using Javascript",
+       class = "tab-title")
   )
 
 }

@@ -14,7 +14,8 @@ tab_errorHandling_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Error Handling & Debugging")
+    h3("Error Handling & Debugging",
+       class = "tab-title")
   )
 
 }

@@ -14,7 +14,8 @@ tab_visualisationR2D3_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Visualisation with r2d3")
+    h3("Visualisation with r2d3",
+       class = "tab-title")
   )
 
 }

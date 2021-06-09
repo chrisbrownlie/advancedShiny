@@ -35,13 +35,13 @@ tab_info_ui <- function(id) {
             ideas and hopefully introduce R Shiny developers in the department to some new shiny solutions and possibilities."),
 
           p("This project (the app and accompanying talks) will", tags$b("not"), "cover every single thing that R Shiny has to offer. Additionally,
-            although the name implies all topics are at least intermediate level, every effort will be made to ensure the content can be understood
-            by those who are fairly new to R Shiny."),
+            although the name implies all topics are at least intermediate level, some are more straightforward and every effort will be made to
+            ensure the content can be understood by those who are fairly new to R Shiny."),
 
-          p("A basic knowledge of R and R Shiny is assumed. For a beginners introduction to either of these, see the official documentation and get
+          p("A basic knowledge of R and R Shiny is assumed, however. For a beginners introduction to either of these, see the official documentation and get
             started guide, or check out the", tags$a("Coffee & Coding sharepoint page",
                                                      href = "https://educationgovuk.sharepoint.com/sites/sarpi/g/AC/Coffee%20and%20Coding.aspx"),
-            "as there has been several beginner-level talks on these two topics.")
+            "as there has been previous beginner-level talks on these two topics.")
         )
       ),
 
@@ -65,8 +65,8 @@ tab_info_ui <- function(id) {
             date). The app has been structured as an R package (see section 1.5 for more info), so you can clone the repository and run the app
             yourself with the code below."),
 
-          code_snippet(c("library(advancedShiny)",
-                         "testing_snippet()"))
+          code_snippet(c("remotes::install_github('chrisbrownlie/advancedShiny')",
+                         "advancedShiny::run_IAS_app()"))
         )
       )
     ),

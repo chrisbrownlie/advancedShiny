@@ -14,7 +14,8 @@ tab_reactiveGraph_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Reactive Graph")
+    h3("Reactive Graph",
+       class = "tab-title")
   )
 
 }

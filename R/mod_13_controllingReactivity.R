@@ -14,7 +14,8 @@ tab_controllingReactivity_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Controlling Reactivity")
+    h3("Controlling Reactivity",
+       class = "tab-title")
   )
 
 }

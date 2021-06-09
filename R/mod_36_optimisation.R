@@ -14,7 +14,8 @@ tab_optimisation_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Optimisation")
+    h3("Optimisation",
+       class = "tab-title")
   )
 
 }

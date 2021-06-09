@@ -14,7 +14,8 @@ tab_whatIsShiny_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("What Is Shiny?")
+    h3("What Is Shiny?",
+       class = "tab-title")
   )
 
 }

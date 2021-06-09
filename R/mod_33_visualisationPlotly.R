@@ -14,7 +14,8 @@ tab_visualisationPlotly_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Visualisation with plotly")
+    h3("Visualisation with plotly",
+       class = "tab-title")
   )
 
 }

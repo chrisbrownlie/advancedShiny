@@ -14,7 +14,8 @@ tab_extendingShiny_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Extending Shiny")
+    h3("Extending Shiny",
+       class = "tab-title")
   )
 
 }

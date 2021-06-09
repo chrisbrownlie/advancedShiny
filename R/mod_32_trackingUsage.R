@@ -14,7 +14,8 @@ tab_trackingUsage_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
-    h3("Tracking Usage")
+    h3("Tracking Usage",
+       class = "tab-title")
   )
 
 }
