@@ -107,6 +107,8 @@ tab_whatIsShiny_ui <- function(id) {
             tags$li(code_block("later", T), ": used to execute code after a set amount of time (e.g. the", code_block("invalidateLater()"), "function. Crucially it allows time-specific
                               delays which do not block R from completing other tasks."),
 
+            tags$li(code_block("sourcetools", T), ": fast reading and parsing of R code, comparable to readr."),
+
             tags$li(code_block("ellipsis", T), ": used for checking arguments that have been supplied to functions with the ellipsis. E.g. ensure ellipsis arguments are unused if they are just
                               included 'for future expansion'"),
 
@@ -117,7 +119,6 @@ tab_whatIsShiny_ui <- function(id) {
             tags$li(code_block("methods", T), ",", code_block("utils", T), ",", code_block("tools", T), ": base R packages that respectively: enable S3 and S4 classes;
                     enable various utility functions; and provide tools for package development."),
 
-            tags$li(code_block("sourcetools", T)),
             tags$li(code_block("jsonlite", T)),
             tags$li(code_block("promises", T)),
             tags$li(code_block("crayon", T)),
