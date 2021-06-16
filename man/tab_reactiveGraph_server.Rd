@@ -4,9 +4,11 @@
 \alias{tab_reactiveGraph_server}
 \title{Reactive Graph module server}
 \usage{
-tab_reactiveGraph_server(appData)
+tab_reactiveGraph_server(id, appData)
 }
 \arguments{
+\item{id}{to be used to namespace the module}
+
 \item{appData}{the appData reactiveValues object, defined in server.R and available
 to all modules}
 }

@@ -4,9 +4,11 @@
 \alias{tab_shinyModules_server}
 \title{Shiny Modules module server}
 \usage{
-tab_shinyModules_server(appData)
+tab_shinyModules_server(id, appData)
 }
 \arguments{
+\item{id}{to be used to namespace the module}
+
 \item{appData}{the appData reactiveValues object, defined in server.R and available
 to all modules}
 }

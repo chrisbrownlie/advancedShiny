@@ -4,9 +4,11 @@
 \alias{tab_customInputs_server}
 \title{Custom Shiny Inputs module server}
 \usage{
-tab_customInputs_server(appData)
+tab_customInputs_server(id, appData)
 }
 \arguments{
+\item{id}{to be used to namespace the module}
+
 \item{appData}{the appData reactiveValues object, defined in server.R and available
 to all modules}
 }

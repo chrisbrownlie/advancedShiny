@@ -4,9 +4,11 @@
 \alias{tab_optimisation_server}
 \title{Optimisation module server}
 \usage{
-tab_optimisation_server(appData)
+tab_optimisation_server(id, appData)
 }
 \arguments{
+\item{id}{to be used to namespace the module}
+
 \item{appData}{the appData reactiveValues object, defined in server.R and available
 to all modules}
 }

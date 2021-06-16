@@ -4,9 +4,11 @@
 \alias{tab_trackingUsage_server}
 \title{Tracking Usage module server}
 \usage{
-tab_trackingUsage_server(appData)
+tab_trackingUsage_server(id, appData)
 }
 \arguments{
+\item{id}{to be used to namespace the module}
+
 \item{appData}{the appData reactiveValues object, defined in server.R and available
 to all modules}
 }

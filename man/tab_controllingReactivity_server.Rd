@@ -4,9 +4,11 @@
 \alias{tab_controllingReactivity_server}
 \title{Controlling Reactivity module server}
 \usage{
-tab_controllingReactivity_server(appData)
+tab_controllingReactivity_server(id, appData)
 }
 \arguments{
+\item{id}{to be used to namespace the module}
+
 \item{appData}{the appData reactiveValues object, defined in server.R and available
 to all modules}
 }

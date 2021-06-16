@@ -13,7 +13,7 @@ Description: Package containing an R Shiny app which is initially being develope
 License: MIT + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.1.1
-Depends:
+Imports:
   shiny,
   shinydashboard,
   shinydashboardPlus

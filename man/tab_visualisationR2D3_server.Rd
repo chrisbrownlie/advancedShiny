@@ -4,9 +4,11 @@
 \alias{tab_visualisationR2D3_server}
 \title{Visualisation with r2d3 module server}
 \usage{
-tab_visualisationR2D3_server(appData)
+tab_visualisationR2D3_server(id, appData)
 }
 \arguments{
+\item{id}{to be used to namespace the module}
+
 \item{appData}{the appData reactiveValues object, defined in server.R and available
 to all modules}
 }

@@ -4,9 +4,11 @@
 \alias{tab_info_server}
 \title{Info module server}
 \usage{
-tab_info_server(appData)
+tab_info_server(id, appData)
 }
 \arguments{
+\item{id}{to be used to namespace the module}
+
 \item{appData}{the appData reactiveValues object, defined in server.R and available
 to all modules}
 }

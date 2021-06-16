@@ -4,9 +4,11 @@
 \alias{tab_usingCSS_server}
 \title{Using CSS module server}
 \usage{
-tab_usingCSS_server(appData)
+tab_usingCSS_server(id, appData)
 }
 \arguments{
+\item{id}{to be used to namespace the module}
+
 \item{appData}{the appData reactiveValues object, defined in server.R and available
 to all modules}
 }

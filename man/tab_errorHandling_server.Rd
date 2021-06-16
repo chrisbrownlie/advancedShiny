@@ -4,9 +4,11 @@
 \alias{tab_errorHandling_server}
 \title{Error Handling & Debugging module server}
 \usage{
-tab_errorHandling_server(appData)
+tab_errorHandling_server(id, appData)
 }
 \arguments{
+\item{id}{to be used to namespace the module}
+
 \item{appData}{the appData reactiveValues object, defined in server.R and available
 to all modules}
 }

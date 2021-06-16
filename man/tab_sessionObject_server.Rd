@@ -4,9 +4,11 @@
 \alias{tab_sessionObject_server}
 \title{Session Object module server}
 \usage{
-tab_sessionObject_server(appData)
+tab_sessionObject_server(id, appData)
 }
 \arguments{
+\item{id}{to be used to namespace the module}
+
 \item{appData}{the appData reactiveValues object, defined in server.R and available
 to all modules}
 }

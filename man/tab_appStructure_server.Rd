@@ -4,9 +4,11 @@
 \alias{tab_appStructure_server}
 \title{App Structure module server}
 \usage{
-tab_appStructure_server(appData)
+tab_appStructure_server(id, appData)
 }
 \arguments{
+\item{id}{to be used to namespace the module}
+
 \item{appData}{the appData reactiveValues object, defined in server.R and available
 to all modules}
 }

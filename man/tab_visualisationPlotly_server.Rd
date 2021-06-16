@@ -4,9 +4,11 @@
 \alias{tab_visualisationPlotly_server}
 \title{Visualisation with plotly module server}
 \usage{
-tab_visualisationPlotly_server(appData)
+tab_visualisationPlotly_server(id, appData)
 }
 \arguments{
+\item{id}{to be used to namespace the module}
+
 \item{appData}{the appData reactiveValues object, defined in server.R and available
 to all modules}
 }
