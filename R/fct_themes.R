@@ -5,6 +5,8 @@
 #' element of the UI.
 #'
 #' @return a shinydashboard theme created using fresh::create_theme
+#'
+#' @export
 get_shinydashboard_theme <- function() {
 
   fresh::create_theme(

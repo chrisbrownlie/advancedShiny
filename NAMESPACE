@@ -2,6 +2,7 @@
 
 export(code_block)
 export(code_snippet)
+export(get_shinydashboard_theme)
 export(l)
 export(run_IAS_app)
 export(tab_appStructure_server)
