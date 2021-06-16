@@ -21,3 +21,38 @@ code_snippet <- function(vec) {
          </pre>')
   )
 }
+
+
+#' Render code i.e. package (or function) name
+#'
+#' Renders either a package name (as italics and formatted as code) or a function (formatted as code),
+#' optionally include a link
+#'
+#' @param code the text to be formatted
+#' @param pkg logical, if TRUE the output text will be italicised (representing a package name). If FALSE it
+#' won't be italicised (representing a function name or arbitrary R code).
+#' @param href optional link to include
+#'
+#' @return a HTML string which can be inserted directly into the UI of the app, showing the
+#' code as formatted, (potentially) clickable text
+#'
+#' @import htmltools
+#'
+#' @export
+code_block <- function(string,
+                       pkg = FALSE,
+                       href = NULL) {
+  if (length(href)) {
+    if(pkg) {
+      tags$a(tags$i(tags$code(string)), href = href)
+    } else {
+      tags$a(tags$code(string), href = href)
+    }
+  } else {
+    if (pkg) {
+      tags$i(tags$code(string))
+    } else {
+      tags$code(string)
+    }
+  }
+}
