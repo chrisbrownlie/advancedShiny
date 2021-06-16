@@ -134,7 +134,7 @@ body <- shinydashboard::dashboardBody(
   ),
 
   # Use custom dashboard theme designed using fresh (see R/fct_themes.R)
-  fresh::use_theme(get_shinydashboard_theme()),
+  fresh::use_theme(advancedShiny:::get_shinydashboard_theme()),
 
   # Include clipboard.js for copying code snippets
   tags$script(src = "clipboard.min.js"),
