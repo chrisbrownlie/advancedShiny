@@ -25,6 +25,7 @@
 - [ ] The reactive graph (CB)
 - How reactivity makes a pull relationship look like a push relationship
 - Graph showing the flushing cycle and reactive graph
+- whereami
 
 - [ ] Controlling reactivity (CB)
 - Using debounce & throttle
