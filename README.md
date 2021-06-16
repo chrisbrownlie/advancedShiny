@@ -27,7 +27,8 @@ devtools::install_github("chrisbrownlie/advancedShiny")
 The app can be run with the following command:
 
 ``` r
-advancedShiny::run_IAS_app()
+library(advancedShiny)
+run_IAS_app()
 ```
 
 # More info

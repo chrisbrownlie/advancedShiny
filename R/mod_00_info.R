@@ -66,7 +66,8 @@ tab_info_ui <- function(id) {
             yourself with the code below."),
 
           code_snippet(c("remotes::install_github('chrisbrownlie/advancedShiny')",
-                         "advancedShiny::run_IAS_app()"))
+                         "library(advancedShiny)",
+                         "run_IAS_app()"))
         )
       )
     ),
