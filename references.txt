@@ -1,0 +1,9 @@
+advancedShiny references
+
+- mastering shiny: https://mastering-shiny.org/
+- outstanding UI with shiny: https://unleash-shiny.rinterface.com/
+- engineering shiny: https://engineering-shiny.org/
+- data storage: https://shiny.rstudio.com/articles/persistent-data-storage.html
+- caching: https://shiny.rstudio.com/articles/caching.html
+- using R6 in shiny: https://appsilon.com/super-solutions-for-shiny-apps-using-r6-classes/
+- R6 performance: https://r6.r-lib.org/articles/Performance.html
