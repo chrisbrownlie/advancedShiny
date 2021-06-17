@@ -119,6 +119,12 @@ sidebar <- shinydashboard::dashboardSidebar(
         "3.6 - Optimisation",
         tabName = "3_6_optimisation"
       )
+    ),
+
+    # References & Materials
+    shinydashboard::menuItem(
+      "References & Further Materials",
+      tabName = "4_references"
     )
 
   )
@@ -237,6 +243,11 @@ body <- shinydashboard::dashboardBody(
     shinydashboard::tabItem(
       "3_6_optimisation",
       tab_optimisation_ui("optimisation")
+    ),
+
+    shinydashboard::tabItem(
+      "4_references",
+      tab_references_ui("references")
     )
 
 

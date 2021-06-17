@@ -66,4 +66,8 @@ server <- function(input, output, session) {
   tab_optimisation_server("optimisation",
                           appData = appData)
 
+  # Section 4 - References
+  tab_references_server("references",
+                        appData = appData)
+
 }

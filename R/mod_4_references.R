@@ -1,30 +1,28 @@
-# NOTE: replace placeholders with module name: modTCx = Title Case; modCCx = camelCase
+#' References & Further Materials module
 
-#' modTCx module
-
-#' modTCx module UI
+#' References & Further Materials module UI
 #'
-#' Defines the UI for the modTCx module
+#' Defines the UI for the References & Further Materials module
 #'
 #' @param id to be used to namespace the module
 #'
 #' @return the module UI, as a tagList
 #'
 #' @export
-tab_modCCx_ui <- function(id) {
+tab_references_ui <- function(id) {
 
   ns <- NS(id)
 
   tagList(
-    h3("modTCx",
+    h3("References & Further Materials",
        class = "tab-title")
   )
 
 }
 
-#' modTCx module server
+#' References & Further Materials module server
 #'
-#' Defines the server logic for the modTCx module
+#' Defines the server logic for the References & Further Materials module
 #'
 #' @param id to be used to namespace the module
 #' @param appData the appData reactiveValues object, defined in server.R and available
@@ -33,8 +31,8 @@ tab_modCCx_ui <- function(id) {
 #' @return the module server, returned from a moduleServer function call
 #'
 #' @export
-tab_modCCx_server <- function(id,
-                              appData) {
+tab_references_server <- function(id,
+                                  appData) {
 
   moduleServer(
     id,

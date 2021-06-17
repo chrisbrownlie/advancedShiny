@@ -64,16 +64,13 @@ tab_whatIsShiny_ui <- function(id) {
 
           p("You can try this for yourself by running a basic shiny app using the code below: "),
 
-          code_snippet(c('library(shiny)',
-                         '',
-                         'ui <- fluidPage(',
-                         'p("Hello, world")',
-                         ')',
-                         '',
-                         'server <- function(input, output) {',
-                         '}',
-                         '',
-                         'shinyApp(ui, server)')),
+          code_snippet(c("library(shiny)",
+                         "",
+                         "ui <- fluidPage(p('Hello, world'))",
+                         "",
+                         "server <- function(input, output) { }",
+                         "",
+                         "shinyApp(ui, server)")),
 
           p("Upon loading the app, open your browsers development tools (on Google Chrome, right click and click 'Inspect'). This will show you the HTML code that
             shiny has generated for your app. If you open up the header element you can see the dependencies being used (see below), which are:"),
