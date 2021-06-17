@@ -4,7 +4,7 @@
 \alias{code_block}
 \title{Render code i.e. package (or function) name}
 \usage{
-code_block(string, pkg = FALSE, href = NULL)
+code_block(string, pkg = FALSE, href = NULL, noWS = NULL)
 }
 \arguments{
 \item{pkg}{logical, if TRUE the output text will be italicised (representing a package name). If FALSE it
