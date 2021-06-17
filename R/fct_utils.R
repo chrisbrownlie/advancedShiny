@@ -41,18 +41,19 @@ code_snippet <- function(vec) {
 #' @export
 code_block <- function(string,
                        pkg = FALSE,
-                       href = NULL) {
+                       href = NULL,
+                       noWS = NULL) {
   if (length(href)) {
     if(pkg) {
-      tags$a(tags$i(tags$code(string)), href = href)
+      tags$a(tags$i(tags$code(string)), href = href, .noWS = noWS)
     } else {
-      tags$a(tags$code(string), href = href)
+      tags$a(tags$code(string), href = href, .noWS = noWS)
     }
   } else {
     if (pkg) {
-      tags$i(tags$code(string))
+      tags$i(tags$code(string), .noWS = noWS)
     } else {
-      tags$code(string)
+      tags$code(string, .noWS = noWS)
     }
   }
 }
