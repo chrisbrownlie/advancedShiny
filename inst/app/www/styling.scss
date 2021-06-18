@@ -7,6 +7,10 @@ $font-colour: 'black';
 $font-family: Segoe UI;
 
 /* --------------- Section 2 - Styles -------------- */
+* {
+  font-family: $font-family;
+}
+
 .tab-title {
   font-size: 40px;
   color: $font-colour;

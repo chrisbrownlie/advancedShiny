@@ -62,7 +62,7 @@ tab_whatIsShiny_ui <- function(id) {
           p(a("jQuery", href = "https://jquery.com/"), "is a javascript package which allows interaction with HTML elements of a webpage, with simpler syntax than pure javascript. This is used to power
             much of the interactive elements you see in shiny. These are implemented with javascript and jQuery was used to make this process easier."),
 
-          p("You can try this for yourself by running a basic shiny app using the code below: "),
+          p("You can see this for yourself by running a basic shiny app using the code below: "),
 
           code_snippet(c("library(shiny)",
                          "",
@@ -114,14 +114,14 @@ tab_whatIsShiny_ui <- function(id) {
           width = NULL,
           p("When you install and use shiny, you are in fact using a collection of separate, interlinked R packages which
             has shiny at its core. Below you can see which packages are currently imported by shiny and what they do,
-            arranged very roughly (and subjectively) in order of significance/usefulness:"),
+            arranged very roughly (and subjectively) in order of significance:"),
           tags$ul(
             tags$li(code_block("httpuv", T),
                     tags$ul(
                       tags$li("Arguably the most important package dependency in terms of how shiny actually works"),
                       tags$li("Designed to be used as a 'building block' for R package web frameworks, of which", code_block("shiny", T), "is the most popular (but not the only, e.g.",
-                              code_block("ambriorix", T), "and", code_block("fiery", T)),
-                      tags$li("Can initiate a web server in R that can handle HTTP requests and open a websocket (connection between the users computer and the server)"),
+                              code_block("ambriorix", T), "and", code_block("fiery", T), "are alternatives)"),
+                      tags$li("Can initiate a web server in R that handles HTTP requests and can also open a websocket (connection between a users computer and the server)"),
                       tags$li("Essentially does all the heavy lifting when it comes to", tags$i("communication between the client (user) and server"))
                     )
             ),
@@ -135,9 +135,8 @@ tab_whatIsShiny_ui <- function(id) {
 
             tags$li(code_block("jsonlite", T),
                     tags$ul(
-                      tags$li("If httpuv is the core of the server and htmltools is essential in creating the UI, jsonlite is the magician behind interactivity in shiny apps"),
-                      tags$li("Or rather, javascript is the magician but the only way for R and javascript to communicate is via JSON, which is generated in R using jsonlite"),
-                      tags$li("R and Javascript communicate via websockets (see the box below 'The app process') and jsonlite allows this to happen")
+                      tags$li("Allows the power of Javascript to be utilised in shiny apps by being an R-JS translator"),
+                      tags$li("R and Javascript communicate via websockets (see the box below 'The Lifecycle of a Shiny App') and jsonlite allows this to happen")
                     )),
 
             tags$li(code_block("R6", T),
@@ -178,24 +177,22 @@ tab_whatIsShiny_ui <- function(id) {
 
             tags$li(code_block("fastmap", T), ": an efficiency package, which makes some small improvements to storage of data structures to address the problem of memory leakage that R suffers from"),
 
-            tags$li(code_block("commonmark", T), ": used to convert markdown to other formats like HTML and LaTeX, powers the", code_block("shiny::markdown()"), "function"),
-
             tags$li(code_block("mime", T), ": used to infer a filetype (MIME type) from an extension (i.e. when a user uploads a file)"),
 
             tags$li(code_block("withr", T), ": a useful package that helps working with functions that have side effect. Includes helpers which mean you can run functions and be sure they will never affect the global environment"),
 
-            tags$li(code_block("crayon", T), ": for outputting messages with coloured, formatted code."),
+            tags$li(code_block("crayon", T), ": for outputting messages with coloured, formatted code"),
 
             tags$li(code_block("glue", T), ": package for concatenating and working with strings"),
 
             tags$li(code_block("xtable", T), ": used to render tables with", code_block("renderTable()")),
 
-            tags$li(code_block("sourcetools", T), ": fast reading and parsing of R code, comparable to readr."),
+            tags$li(code_block("sourcetools", T), ": fast reading and parsing of R code, comparable to readr"),
 
             tags$li(code_block("commonmark", T), ": used to convert markdown to other formats like HTML and LaTeX, powers the", code_block("shiny::markdown()"), "function"),
 
-            tags$li(code_block("ellipsis", T), ": used for checking arguments that have been supplied to functions with the ellipsis. E.g. ensure ellipsis arguments are unused if they are just
-                              included 'for future expansion'"),
+            tags$li(code_block("ellipsis", T), ": used for checking arguments that have been supplied to functions with the ellipsis (e.g. ensure ellipsis arguments are unused if they are just
+                              included 'for future expansion')"),
 
             tags$li(code_block("grDevices", T), ": base R package that allows for controlling of multiple graphics 'devices' - used for rendering plots with", code_block("renderPlot()")),
 
@@ -237,7 +234,7 @@ tab_whatIsShiny_ui <- function(id) {
             tags$li("If the R code does not contain errors, the server returns the Shiny UI HTML code to the client (user)."),
             tags$li("The HTML code is received and interpreted by the client web browser."),
             tags$li("The HTML page is rendered. It is an exact mirror of the initially provided ui.R code"),
-            tags$li("Any interactivity in the app is executed by communications between R and Javascript, formatted as JSON and passed via the
+            tags$li("Any communication between R and Javascript, is formatted as JSON and passed via the
                     established websocket.")
           )
         ) # end box

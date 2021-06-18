@@ -1,5 +1,9 @@
 /* -------------- Section 1 - Defaults ------------ */
 /* --------------- Section 2 - Styles -------------- */
+* {
+  font-family: Segoe UI;
+}
+
 .tab-title {
   font-size: 40px;
   color: "black";

@@ -25,7 +25,7 @@
 - [ ] The reactive graph (CB)
 - How reactivity makes a pull relationship look like a push relationship
 - Graph showing the flushing cycle and reactive graph
-- whereami
+- reactlog
 
 - [ ] Controlling reactivity (CB)
 - Using debounce & throttle
@@ -41,6 +41,7 @@
 - As a package
 - File naming conventions
 - Workflow (using roxygen2, devtools, usethis etc.)
+- Making use of reactivevalues not being copy-on-modify
 - Using modules (briefly mention, covered in next tab)
 
 - [ ] Shiny modules (CB)
@@ -101,6 +102,7 @@
 - base R error handling (tryCatch, withRestarts)
 - shiny-specific error handling (validate, safeError)
 - unit testing (briefly) and shiny testing (shinytest, testServer, testModule)
+- whereami
 
 - [ ] Optimisation
 - profvis

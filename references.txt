@@ -7,3 +7,7 @@ advancedShiny references
 - caching: https://shiny.rstudio.com/articles/caching.html
 - using R6 in shiny: https://appsilon.com/super-solutions-for-shiny-apps-using-r6-classes/
 - R6 performance: https://r6.r-lib.org/articles/Performance.html
+
+tab 1.2
+- reactivity an overview: https://shiny.rstudio.com/articles/reactivity-overview.html
+- how to understand reactivity: https://shiny.rstudio.com/articles/understanding-reactivity.html
