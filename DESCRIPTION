@@ -16,4 +16,5 @@ RoxygenNote: 7.1.1
 Imports:
   shiny,
   shinydashboard,
-  shinydashboardPlus
+  shinydashboardPlus,
+  r2d3

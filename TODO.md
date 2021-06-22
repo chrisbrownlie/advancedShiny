@@ -33,7 +33,7 @@
 - Using isolate & req
 
 - [ ] reactive vs observe (CB)
-- Consumers and producers, contexts
+- Types of object (reactive values, expressions, outputs)
 - When to use reactive vs observe
 - Including observeEvent vs eventReactive
 

@@ -14,7 +14,7 @@ get_shinydashboard_theme <- function() {
       light_blue = "#434C5E"
     ),
     fresh::adminlte_sidebar(
-      width = "300px",
+      width = "300px"
     ),
     fresh::adminlte_global(
       content_bg = "#FFF",

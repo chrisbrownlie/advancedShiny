@@ -16,8 +16,8 @@ server <- function(input, output, session) {
   tab_whatIsShiny_server("whatIsShiny",
                          appData = appData)
 
-  tab_reactiveGraph_server("reactiveGraph",
-                           appData = appData)
+  tab_understandingReactivity_server("understandingReactivity",
+                                     appData = appData)
 
   tab_controllingReactivity_server("controllingReactivity",
                                    appData = appData)

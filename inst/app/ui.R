@@ -29,8 +29,8 @@ sidebar <- shinydashboard::dashboardSidebar(
       ),
 
       shinydashboard::menuSubItem(
-        "1.2 - The reactive graph",
-        tabName = "1_2_reactive_graph"
+        "1.2 - Understanding reactivity",
+        tabName = "1_2_understanding_reactivity"
         ),
 
       shinydashboard::menuSubItem(
@@ -163,8 +163,8 @@ body <- shinydashboard::dashboardBody(
     ),
 
     shinydashboard::tabItem(
-      "1_2_reactive_graph",
-      tab_reactiveGraph_ui("reactiveGraph")
+      "1_2_understanding_reactivity",
+      tab_understandingReactivity_ui("understandingReactivity")
     ),
 
     shinydashboard::tabItem(

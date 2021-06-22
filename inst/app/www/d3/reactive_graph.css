@@ -1,0 +1,29 @@
+.text {
+  color: black;
+  font-family: Segoe UI;
+  font-size: 14px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.selected-button {
+  fill: #a2a367
+}
+
+.unselected-button {
+  fill: #262625
+}
+
+.flashing-button-first {
+  fill: #f2bb24;
+  border-style: dashed;
+  border-colour: #f5e7c1;
+}
+
+.flashing-button-second {
+  fill: #f5e7c1;
+  border-style: dashed;
+  border-colour: #f2bb24;
+}

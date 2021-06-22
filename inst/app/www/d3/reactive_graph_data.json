@@ -1,0 +1,98 @@
+{
+  "nodes": [
+    {
+      "id": 0,
+      "name": "A",
+      "row": 4,
+      "col" : 2,
+      "node_type": "inactive"
+    },
+    {
+      "id": 1,
+      "name": "B",
+      "row": 10,
+      "col" : 2,
+      "node_type": "inactive"
+    },
+    {
+      "id": 2,
+      "name": "C",
+      "row": 14,
+      "col" : 2,
+      "node_type": "inactive"
+    },
+    {
+      "id": 3,
+      "name": "D",
+      "row": 6,
+      "col" : 10,
+      "node_type": "inactive"
+    },
+    {
+      "id": 4,
+      "name": "E",
+      "row": 10,
+      "col" : 10,
+      "node_type": "inactive"
+    },
+    {
+      "id": 5,
+      "name": "F",
+      "row": 14,
+      "col" : 10,
+      "node_type": "inactive"
+    },
+    {
+      "id": 6,
+      "name": "G",
+      "row": 6,
+      "col" : 16,
+      "node_type": "inactive"
+    },
+    {
+      "id": 7,
+      "name": "H",
+      "row": 12,
+      "col" : 16,
+      "node_type": "inactive"
+    }
+  ],
+  "links": [
+    {
+      "link_id": "link_0",
+      "source_node": 0,
+      "target_node": 3
+    },
+    {
+      "link_id": "link_1",
+      "source_node": 1,
+      "target_node": 3
+    },
+    {
+      "link_id": "link_2",
+      "source_node": 1,
+      "target_node": 4
+    },
+    {
+      "link_id": "link_3",
+      "source_node": 2,
+      "target_node": 5
+    },
+    {
+      "link_id": "link_4",
+      "source_node": 3,
+      "target_node": 6
+    },
+    {
+      "link_id": "link_5",
+      "source_node": 4,
+      "target_node": 7
+    },
+    {
+      "link_id": "link_6",
+      "source_node": 5,
+      "target_node": 7
+    }
+  ]
+
+}

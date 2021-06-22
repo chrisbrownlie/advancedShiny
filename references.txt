@@ -11,3 +11,6 @@ advancedShiny references
 tab 1.2
 - reactivity an overview: https://shiny.rstudio.com/articles/reactivity-overview.html
 - how to understand reactivity: https://shiny.rstudio.com/articles/understanding-reactivity.html
+
+tab 1.4
+- reactive and observe https://github.com/rstudio/ShinyDeveloperConference/blob/master/Reactivity/slides.Rmd

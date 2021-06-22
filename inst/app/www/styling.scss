@@ -7,8 +7,9 @@ $font-colour: 'black';
 $font-family: Segoe UI;
 
 /* --------------- Section 2 - Styles -------------- */
-* {
+p {
   font-family: $font-family;
+  font-colour: $font-colour
 }
 
 .tab-title {

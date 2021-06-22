@@ -1,7 +1,8 @@
 /* -------------- Section 1 - Defaults ------------ */
 /* --------------- Section 2 - Styles -------------- */
-* {
+p {
   font-family: Segoe UI;
+  font-colour: "black";
 }
 
 .tab-title {
