@@ -14,3 +14,14 @@ tab 1.2
 
 tab 1.4
 - reactive and observe https://github.com/rstudio/ShinyDeveloperConference/blob/master/Reactivity/slides.Rmd
+
+htmlwidgets
+https://deanattali.com/blog/htmlwidgets-tips/
+https://www.rstudio.com/resources/rstudioconf-2017/linking-html-widgets-with-crosstalk/
+
+reactivity
+https://www.rstudio.com/resources/shiny-dev-con/reactivity-pt-1-joe-cheng/
+https://www.rstudio.com/resources/shiny-dev-con/reactivity-pt-2/
+
+plotly
+https://www.rstudio.com/resources/webinars/accessing-and-responding-to-plotly-events-in-shiny/
