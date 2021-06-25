@@ -9,7 +9,6 @@
 #' @return the module UI, as a tagList
 #'
 #' @importFrom shinydashboardPlus box
-#' @importFrom r2d3 d3output
 #'
 #' @export
 tab_understandingReactivity_ui <- function(id) {
@@ -166,15 +165,18 @@ tab_understandingReactivity_ui <- function(id) {
                          "}",
                          "",
                          "shinyApp(ui, server)")),
+          br(),
           p("Try running the code above, and changing the value of 'B' to 2, before closing the app. Then execute the following function:"),
-          code_snippet(c("shiny::reactLogShow()")),
-          p("You will see something that very much resembles the d3 visualisation of the app's reactive graph, but with some more information
+          code_snippet(c("reactlog::reactlog_show()")),
+          p("You will see something that very much resembles the d3 visualisation of the app's reactive graph (see 'Graphing It' on the right), but with some more information
             on names and timings. You can use the arrows in the top bar to step through each stage of reactive reasoning in much the same way."),
           tags$img(src = "img/simple_reactlog.png",
                    width = "100%"),
+          br(),
           p("As mentioned above, this is a simple example and the image below shows what one small part of the reactlog looks like for a far more complex app.
             It is these situations that reactlog was designed for, to allow you to reason about what is happening at each stage of the reactive graph in your
             app."),
+          br(),
           tags$img(src = "img/complex_reactlog_2.png",
                    width = "100%")
         ) # end box
@@ -231,6 +233,15 @@ tab_understandingReactivity_ui <- function(id) {
             which is what we'd expect based on everything we learned in the '4 Maxims' box. This is by design and another example of how shiny uses laziness to
             improve efficiency (more on this in the next tab 'Controlling reactivity')."),
           br(),
+          p("Another example of designed laziness lies in a key part of shiny that often surprises people but works extremely well. It is often overlooked that",
+            tags$i("shiny won't calculate an observer if it is not visible."), "This means that, by default, if your app has multiple tabs then shiny will only
+            'flush' the outputs on the currently visible tab."),
+          p("This drastically improves the speed of shiny apps, as there may be situations where a tab has an extremely long running output which is invlidated often,
+            but if it is never viewed then it will never be calculated - meaning the rest of the app can run much faster. Note that this function of reactivity is not
+            visualised in the animation below, but can easily be conceptualised as follows: at the calculation stage (e.g. Step 2) if the output G is on a hidden tab, it simply
+            won't calculate and shiny will move on to the next output. This also means that any reactive expressions which are only used in G (i.e. F) won't be calculated either.
+            You can see how - in a large, complex shiny app - this would make a huge difference."),
+          hr(),
           p("One consequence of this designed laziness is that", tags$i(strong("reactive dependencies are dynamic"), .noWS = "outside"), ". In other words, shiny
             tries to minimise unnecessary dependencies by working out the minimum number of times it can get away with recalculating something."),
           p("Consider the two observe() calls below:"),
@@ -279,6 +290,7 @@ tab_understandingReactivity_ui <- function(id) {
           p("The my_plot output has a reactive dependency on input$number_of_points. If input$number_of_points changes, my_plot will have be to re-built"),
           p("Visualising how reactive objects and observers interact can help improve our understanding of reactivity in a shiny app, as well as provide
             a method for debugging reactivity. Consider the following trivial app:"),
+          br(),
           code_snippet(c("library(shiny)",
                          "",
                          "ui <- fluidPage(",
@@ -300,18 +312,41 @@ tab_understandingReactivity_ui <- function(id) {
                          "}",
                          "",
                          "shinyApp(ui, server)")),
+          br(),
           p("Copy the code and run the app yourself to get an idea of what is going on. There are three reactive values (A, B and C), three reactive expressions/
             conductors (D, E and F), and two observers (G and H). If you are unsure on the difference between these three types of object, or what reactive() does
             exactly, take a look at the 'reactive() vs observe()' tab for more information."),
+          br(),
           p("We can plot the reactive dependencies of our objects, in order to better understand our app and how shiny monitors each of these. The
             reactlog package was designed to do exactly this (see the box 'reactlog')."),
           p("The animation below shows what the reactive graph might look like when the graph is first initiated, and then the user changes the input 'B'. See",
             tags$a("this RStudio article, which heavily inspired the animation below.")),
-          strong("Click through the steps or click 'Play all' to cycle through the animations."),
-          d3Output(ns("d3_reactiveGraph"),
-                   height = "600px"),
+          br(),
+          strong("Click through the steps or click 'Play all' to cycle through the animations. The colour of a node represents its internal state: green = value is known/calculated;
+                 orange = value is calculating; grey = value is invalidated (not calculated)"),
+          hr(),
+          r2d3::d3Output(ns("d3_reactiveGraph"),
+                         height = "600px"),
           footer = h6("The animation above was created using d3.js & r2d3 (see section 3.4)")
-        ) # end box
+        ), # end box
+
+
+        box(
+          title = "Summary",
+          status = "teal",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL,
+          p("So in summary:"),
+          tags$ul(
+            tags$li("R does not work on a push basis, so shiny reactivity works by frequently checking if something has happened."),
+            tags$li("shiny uses an alert system where reactive objects are", tags$i("invalidated"), "triggering a", tags$i("flush"), "(recalculation) of reactive values."),
+            tags$li("Laziness is an important part of shiny's reactivity - it will figure out how to do the minimum amount of calculation possible."),
+            tags$li("You can debug reactivity in your own apps by visualising the reactive graph using the reactlog package.")
+          )
+        )
       ) # end column
 
     ) # end fluidRow
@@ -329,8 +364,6 @@ tab_understandingReactivity_ui <- function(id) {
 #'
 #' @return the module server, returned from a moduleServer function call
 #'
-#' @importFrom r2d3 renderd3 r2d3
-#'
 #' @export
 tab_understandingReactivity_server <- function(id,
                                      appData) {
@@ -347,11 +380,11 @@ tab_understandingReactivity_server <- function(id,
 
 
       # Reactive graph d3.js visualisation
-      output$d3_reactiveGraph <- renderD3({
-        r2d3(
+      output$d3_reactiveGraph <- r2d3::renderD3({
+        r2d3::r2d3(
           data = rjson::fromJSON(file = system.file("app/www/d3/reactive_graph_data.json", package = "advancedShiny")),
           script = system.file("app/www/d3/reactive_graph.js", package = "advancedShiny"),
-          sizing = sizingPolicy(padding = "10%")
+          sizing = r2d3::sizingPolicy(padding = "10%")
         )
       })
 

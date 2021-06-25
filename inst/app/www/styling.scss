@@ -2,14 +2,15 @@
 $main-colour: #434C5E;
 $main-bgcolour: 'white';
 
-$font-size: 14;
+$font-size: 16px;
 $font-colour: 'black';
 $font-family: Segoe UI;
 
 /* --------------- Section 2 - Styles -------------- */
 p {
   font-family: $font-family;
-  font-colour: $font-colour
+  font-colour: $font-colour;
+  font-size: $font-size;
 }
 
 .tab-title {
