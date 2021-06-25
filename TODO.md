@@ -11,18 +11,18 @@
 ## Plan for each tab:
 (Bullet points indicate rough/minimum points to cover, initials in brackets indicate who will complete)
 
-- [ ] Info (CB)
+- [x] Info (CB)
 - What the app is
 - How to use it
 - Important points
 
 ### SECTION 1
-- [ ] What is Shiny, actually? (CB)
+- [x] What is Shiny, actually? (CB)
 - What a web app is
 - How shiny converts R to HTML, JS and CSS
 - Shiny dependencies (httpuv etc.)
 
-- [ ] The reactive graph (CB)
+- [x] The reactive graph (CB)
 - How reactivity makes a pull relationship look like a push relationship
 - Graph showing the flushing cycle and reactive graph
 - reactlog
