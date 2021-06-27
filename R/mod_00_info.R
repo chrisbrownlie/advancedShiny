@@ -22,7 +22,7 @@ tab_info_ui <- function(id) {
        class = "tab-title"),
     fluidRow(
       column(
-        width = 6,
+        width = 8,
         box(
           title = "Purpose of this app",
           solidHeader = TRUE,
@@ -42,11 +42,42 @@ tab_info_ui <- function(id) {
             started guide, or check out the", tags$a("Coffee & Coding sharepoint page",
                                                      href = "https://educationgovuk.sharepoint.com/sites/sarpi/g/AC/Coffee%20and%20Coding.aspx"),
             "as there has been previous beginner-level talks on these two topics.")
+        ),
+        
+        box(
+          title = "Shiny Ladder of Enlightenment",
+          solidHeader = TRUE,
+          width = NULL,
+          icon = icon("info-circle"),
+          status = "info",
+          
+          p("In a talk at Shiny Dev Con 2016, Joe Cheng (creator of shiny and CTO at RStudio) proposed a (semi-serious) 'Ladder 
+            of Enlightenment' for shiny. The ladder gives an idea of different levels of understanding of shiny and how it works
+            (particularly how reactivity works).
+            The ladder is as follows:"),
+          tags$ol(
+            tags$li("Has used 'output' and 'input'"),
+            tags$li("Has used reactive expressions (", code_block("reactive()", noWS = "outside"), ")"),
+            tags$li("Has used", code_block("observe()"), "and/or ", code_block("observeEvent()", noWS = "outside"), ". 
+                    Has written reactive expressions that depend on other reactive expressions. Has used", code_block("isolate()"),
+                    "properly."),
+            tags$li("Can", tags$i("confidently"), "say when to use", code_block("reactive()"), "vs. ", code_block("observe()", noWS = "outside"),
+                    ". Has used ", code_block("invalidateLater()", noWS = "outside"), "."),
+            tags$li("Writes higher-order reactives (functions that have reactive expressions as input parameters and return values)."),
+            tags$li("Understands that reactive expressions are monads.")
+          ),
+          p("It is assumed that if you are using this app you are at least at step 1 and probably higher."),
+          p("Much of the first section of this app, particularly tabs 1.2-1.4 (Understanding, Using and Controlling reactivity) will cover steps 2-4 (and briefly touch on 5)."),
+          p("As Joe commented in his talk, there are probably only a handful of people in the world who are at step 6 (himself
+            and Hadley (Wickham) being two of them). This is because reaching this step would require both expert knowledge of maths
+            and computing, as well as deep understanding of shiny internals and how the package was built. As such this won't be spoken
+            about here. If you're wondering what monads are, I would suggest you don't(!) - if you really want to know you can google 'what
+            are monads' and come back here once you've emerged from the rabbit hole!")
         )
       ),
 
       column(
-        width = 6,
+        width = 4,
         box(
           title = "Using the app",
           solidHeader = TRUE,
@@ -68,37 +99,26 @@ tab_info_ui <- function(id) {
           code_snippet(c("remotes::install_github('chrisbrownlie/advancedShiny')",
                          "library(advancedShiny)",
                          "run_IAS_app()"))
-        )
-      )
-    ),
-
-    fluidRow(
-      column(
-        width = 12,
+        ),
+        
         box(
           title = "Contributions",
           solidHeader = TRUE,
           width = NULL,
           icon = icon("users"),
           status = "purple",
-
+          
           p("This app was developed by:"),
           tags$ul(
             tags$li(
               tags$a("Chris Brownlie", href = "mailto:christopher.brownlie@education.gov.uk")
-              ),
-            tags$li(
-              tags$a("Cameron Race", href = "mailto:cameron.race@education.gov.uk")
-              ),
-            tags$li(
-              tags$a("Linda Bennett", href = "mailto:linda.bennett@education.gov.uk")
             )
           ),
-          p("If you wish to add or expand upon this app, please contact one of the above to discuss.")
-        )
-      )
-    )
-  )
+          p("For more info or to contribute, contact the above.")
+        ) #end box
+      ) #end column
+    ) #end fluidRow
+  ) #end tagList
 
 }
 

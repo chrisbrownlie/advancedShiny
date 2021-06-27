@@ -34,13 +34,13 @@ sidebar <- shinydashboard::dashboardSidebar(
         ),
 
       shinydashboard::menuSubItem(
-        "1.3 - Controlling reactivity",
-        tabName = "1_3_controlling_reactivity"
+        "1.3 - Using reactivity",
+        tabName = "1_3_using_reactivity"
         ),
 
       shinydashboard::menuSubItem(
-        "1.4 - reactive() vs observe()",
-        tabName = "1_4_reactive_vs_observe"
+        "1.4 - Controlling reactivity",
+        tabName = "1_4_controlling_reactivity"
         ),
 
       shinydashboard::menuSubItem(
@@ -85,9 +85,9 @@ sidebar <- shinydashboard::dashboardSidebar(
       )
     ),
 
-    # Section 3 'Improvements & Plots'
+    # Section 3 'Improvements & Graphics'
     shinydashboard::menuItem(
-      "3 - Improvements & Plots",
+      "3 - Improvements & Graphics",
       startExpanded = TRUE,
 
       shinydashboard::menuSubItem(
@@ -168,13 +168,13 @@ body <- shinydashboard::dashboardBody(
     ),
 
     shinydashboard::tabItem(
-      "1_3_controlling_reactivity",
-      tab_controllingReactivity_ui("controllingReactivity")
+      "1_3_using_reactivity",
+      tab_usingReactivity_ui("usingReactivity")
     ),
 
     shinydashboard::tabItem(
-      "1_4_reactive_vs_observe",
-      tab_reactiveObjects_ui("reactiveObjects")
+      "1_4_controlling_reactivity",
+      tab_controllingReactivity_ui("controllingReactivity")
     ),
 
     shinydashboard::tabItem(

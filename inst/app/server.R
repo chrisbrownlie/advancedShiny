@@ -19,11 +19,11 @@ server <- function(input, output, session) {
   tab_understandingReactivity_server("understandingReactivity",
                                      appData = appData)
 
+  tab_usingReactivity_server("usingReactivity",
+                             appData = appData)
+  
   tab_controllingReactivity_server("controllingReactivity",
                                    appData = appData)
-
-  tab_reactiveObjects_server("reactiveObjects",
-                             appData = appData)
 
   tab_appStructure_server("appStructure",
                           appData = appData)

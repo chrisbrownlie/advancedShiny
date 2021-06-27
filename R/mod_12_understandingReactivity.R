@@ -24,7 +24,27 @@ tab_understandingReactivity_ui <- function(id) {
         width = 6,
 
         box(
-          title = "Pull or Push?",
+          title = "Reactive Programming",
+          status = "maroon",
+          closable = TRUE,
+          collapsible = TRUE,
+          icon = icon("react"),
+          width = NULL,
+          solidHeader = TRUE,
+          p("Reactive programming is a paradigm that has been around for a while in software engineering and is based on 
+            the concept of values which change over time in response to certain actions, and calculations that use these
+            values (and therefore also return different outputs over time). Reactive programming is extremely common and the
+            most widely-used example is a spreadsheet program. In a spreadsheet (e.g. Excel), you define relationships between
+            cells, and if a cell's value gets updated or overwritten then everything that has a relationship with that cell also
+            updates."),
+          p("In shiny, reactive programming is what makes apps interactive. Users can change values and anything which relies
+            on those values will be recalculated. The power of shiny is in the way it a) implements reactive programming in a
+            language (R) that is inherently not reactive and b) how it determines the optimal way to execute recalculations
+            involved in reactivity.")
+        ),
+        
+        box(
+          title = "Push or Pull?",
           status = "maroon",
           closable = TRUE,
           collapsible = TRUE,
@@ -194,7 +214,7 @@ tab_understandingReactivity_ui <- function(id) {
           icon = icon("bed"),
           width = NULL,
           solidHeader = TRUE,
-          p("The box on the left gives one way to understand reactivity. Another important concept which may help to contextualise the process is to realise that
+          p("The boxes on the left gives one way to understand reactivity. Another important concept which may help to contextualise the process is to realise that
             shiny apps use declarative rather than imperative programming."),
           tags$ul(
             tags$li(strong("Imperative programming"), "means that you tell the code to do something and it does it. For example when you
@@ -341,10 +361,14 @@ tab_understandingReactivity_ui <- function(id) {
           width = NULL,
           p("So in summary:"),
           tags$ul(
-            tags$li("R does not work on a push basis, so shiny reactivity works by frequently checking if something has happened."),
-            tags$li("shiny uses an alert system where reactive objects are", tags$i("invalidated"), "triggering a", tags$i("flush"), "(recalculation) of reactive values."),
-            tags$li("Laziness is an important part of shiny's reactivity - it will figure out how to do the minimum amount of calculation possible."),
-            tags$li("You can debug reactivity in your own apps by visualising the reactive graph using the reactlog package.")
+            tags$li("R does not work on a push basis, so shiny reactivity works by frequently checking whether or not something has 
+                    happened and recalculating if it has."),
+            tags$li("shiny uses an alert system where reactive objects are", tags$i("invalidated"), "(indicating they have changed), 
+                    which triggers a", tags$i("flush"), "(recalculation) of reactive values."),
+            tags$li("Laziness is a key part of shiny's reactivity - it will figure out how to do the minimum amount of calculation possible."),
+            tags$li("The reactive graph is how shiny knows what needs to be recalculated in a flush,", tags$i("reactive contexts"), "(dependencies)
+                    are established between various reactive elements of an app."),
+            tags$li("You can debug reactivity in your own apps by visualising the reactive graph, using the reactlog package.")
           )
         )
       ) # end column

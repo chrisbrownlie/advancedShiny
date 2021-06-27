@@ -22,20 +22,20 @@
 - How shiny converts R to HTML, JS and CSS
 - Shiny dependencies (httpuv etc.)
 
-- [x] The reactive graph (CB)
+- [x] Understanding reactivity (CB)
 - How reactivity makes a pull relationship look like a push relationship
 - Graph showing the flushing cycle and reactive graph
 - reactlog
+
+- [ ] Using reactivity (CB)
+- Types of object (reactive values, expressions, outputs)
+- When to use reactive vs observe
+- Including observeEvent vs eventReactive
 
 - [ ] Controlling reactivity (CB)
 - Using debounce & throttle
 - Using invalidateLater & reactivePoll
 - Using isolate & req
-
-- [ ] reactive vs observe (CB)
-- Types of object (reactive values, expressions, outputs)
-- When to use reactive vs observe
-- Including observeEvent vs eventReactive
 
 - [ ] Structuring an app (CB)
 - As a package
