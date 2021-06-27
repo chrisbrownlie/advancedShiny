@@ -7,7 +7,7 @@ $font-colour: 'black';
 $font-family: Segoe UI;
 
 /* --------------- Section 2 - Styles -------------- */
-p {
+p, li {
   font-family: $font-family;
   font-colour: $font-colour;
   font-size: $font-size;

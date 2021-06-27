@@ -1,6 +1,6 @@
 /* -------------- Section 1 - Defaults ------------ */
 /* --------------- Section 2 - Styles -------------- */
-p {
+p, li {
   font-family: Segoe UI;
   font-colour: "black";
   font-size: 16px;
