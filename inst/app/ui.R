@@ -7,11 +7,13 @@ sass::sass(
 )
 
 # Header definition
-header <- shinydashboard::dashboardHeader(title = "R Shiny")
+header <- shinydashboard::dashboardHeader(title = "advancedShiny")
 
 # Sidebar definition
 sidebar <- shinydashboard::dashboardSidebar(
   shinydashboard::sidebarMenu(
+    
+    id = "sidebar_nav",
 
     shinydashboard::menuItem(
       "About this app",
@@ -21,6 +23,7 @@ sidebar <- shinydashboard::dashboardSidebar(
     # Section 1 'How Shiny Works'
     shinydashboard::menuItem(
       "1 - How shiny works",
+      tabName = "1_how_shiny_works",
       startExpanded = TRUE,
 
       shinydashboard::menuSubItem(
@@ -57,6 +60,7 @@ sidebar <- shinydashboard::dashboardSidebar(
     # Section 2 'Making it pretty'
     shinydashboard::menuItem(
       "2 - Making it pretty",
+      tabName = "2_making_it_pretty",
       startExpanded = TRUE,
 
       shinydashboard::menuSubItem(
@@ -88,6 +92,7 @@ sidebar <- shinydashboard::dashboardSidebar(
     # Section 3 'Improvements & Graphics'
     shinydashboard::menuItem(
       "3 - Improvements & Graphics",
+      tabName = "3_improvements_and_graphics",
       startExpanded = TRUE,
 
       shinydashboard::menuSubItem(
@@ -142,13 +147,17 @@ body <- shinydashboard::dashboardBody(
   # Use custom dashboard theme designed using fresh (see R/fct_themes.R)
   fresh::use_theme(get_shinydashboard_theme()),
 
+  # Include shinyjs and custom extensions
+  shinyjs::useShinyjs(),
+  shinyjs::extendShinyjs(script = "shinyjs_extensions.js",
+                         functions = c("scroll_to")),
+    
   # Include clipboard.js for copying code snippets
   tags$script(src = "clipboard.min.js"),
   tags$script(src = "initiate_clipboard.js"),
 
   # Call each module UI which will contain the definition for each tab
   shinydashboard::tabItems(
-
 
     # Section 0 - the landing page
     shinydashboard::tabItem(

@@ -48,7 +48,7 @@ tab_info_ui <- function(id) {
           title = "Shiny Ladder of Enlightenment",
           solidHeader = TRUE,
           width = NULL,
-          icon = icon("info-circle"),
+          icon = icon("swimming-pool"),
           status = "info",
           
           p("In a talk at Shiny Dev Con 2016, Joe Cheng (creator of shiny and CTO at RStudio) proposed a (semi-serious) 'Ladder 
@@ -98,7 +98,11 @@ tab_info_ui <- function(id) {
 
           code_snippet(c("remotes::install_github('chrisbrownlie/advancedShiny')",
                          "library(advancedShiny)",
-                         "run_IAS_app()"))
+                         "run_IAS_app()")),
+          
+          p("Note that for any of the code examples which require reactivity, a full app will usually be provided but if not you can enter a demo
+            reactive state using:"),
+          code_snippet(c("shiny::reactiveConsole(TRUE)"))
         ),
         
         box(

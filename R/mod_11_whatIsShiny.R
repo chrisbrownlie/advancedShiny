@@ -267,8 +267,7 @@ tab_whatIsShiny_server <- function(id,
 
       # Alias the namespace function for ease of use
       ns <- session$ns
-
-    }
-  )
+      
+  })
 
 }
