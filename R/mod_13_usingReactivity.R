@@ -253,9 +253,27 @@ tab_usingReactivity_ui <- function(id) {
             tags$li(code_block("reactive()"), "is for", strong("calculating values, without side effects.")),
             tags$li(code_block("observe()"), "is for", strong("performing actions, with side effects."))
           )
+        ),
+        
+        
+        box(
+          title = "Summary",
+          status = "teal",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL,
+          p("So in summary:"),
+          tags$ul(
+            tags$li("Reactive values, expressions and observers are the building blocks of all reactivity"),
+            tags$li("These elements use reference semantics, rather than R's default copy-on-modify semantics"),
+            tags$li("Use reactive() to calculate values, prepare a dataframe, transform a variable"),
+            tags$li("Use observe() to create outputs, alter an existing object, make sure something executes")
+          )
         )
         
-      )
+      ) # end column
     ) # end fluidRow
   ) # end tagList
 

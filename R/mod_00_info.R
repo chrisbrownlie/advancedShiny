@@ -100,8 +100,8 @@ tab_info_ui <- function(id) {
                          "library(advancedShiny)",
                          "run_IAS_app()")),
           
-          p("Note that for any of the code examples which require reactivity, a full app will usually be provided but if not you can enter a demo
-            reactive state using:"),
+          p(strong("Note that for any of the code examples which require reactivity, a mini example app will often be provided but if not you can enter a demo
+            reactive state using:")),
           code_snippet(c("shiny::reactiveConsole(TRUE)"))
         ),
         
@@ -118,7 +118,12 @@ tab_info_ui <- function(id) {
               tags$a("Chris Brownlie", href = "mailto:christopher.brownlie@education.gov.uk")
             )
           ),
-          p("For more info or to contribute, contact the above.")
+          p("with contributions from:"),
+          tags$ul(
+            tags$li(tags$a("Linda Bennett", href = "mailto:linda.bennett@education.gov.uk")),
+            tags$li(tags$a("Cameron Race", href = "mailto:cameron.race@education.gov.uk"))
+          ),
+          p("For more info or to contribute, contact one of the above.")
         ) #end box
       ) #end column
     ) #end fluidRow
