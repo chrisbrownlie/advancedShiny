@@ -244,8 +244,11 @@ function button_to_unselected(transition) {
 // Define animation when Play all is clicked
 // Play all
 svg.select("#run_all").on("click", function() {
+  
+  // Set off animations starting at step 1
   svg.select("#step_1").dispatch("click", {detail: {run_all_flag: true}})
 
+  // Make 'play all' button flash using repeated transitions
   repeat();
 
     function repeat() {

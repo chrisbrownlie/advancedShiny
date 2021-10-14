@@ -49,3 +49,6 @@ run_IAS_app()
 
 # More info
 See TODO.md for a more detailed plan and structure of what the app will contain or contact [Chris Brownlie](mailto:chris.brownlie@hotmail.co.uk) for more information.
+
+# Acknowledgements
+Thanks to the RStudio team for the shiny package, and to the people and organisations who have contributed to the development of shiny & R, including (but not limited to): Dean Attali, Appsilon, dreamRs, thinkR & Guangchang Yu. Much of this package and app builds from their work and I encourage you to check out their work if you want to become a shiny wizard.

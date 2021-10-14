@@ -55,14 +55,14 @@ tab_understandingReactivity_ui <- function(id) {
             When you click a button, it feels like that button sends a notification to R and then R executes something (e.g.
             a popup that says 'Success!'). In reality though, this is not how R works at all. Consider the following code:"),
           code_snippet(c("a <- 1",
-                         "a + 1 # (2)",
+                         "b <- a + 1 # (2)",
                          "a <- 5")),
-          p("The value of", code_block("a + 1"), "does not automatically update so as far as R is concerned, it is still 2. To update is simple though,
+          p("The value of", code_block("b"), "does not automatically update so as far as R is concerned, it is still 2. To update is simple though,
             we simply run the code again"),
           code_snippet(c("a <- 1",
-                         "a + 1 # (2)",
+                         "b <- a + 1 # (2)",
                          "a <- 5",
-                         "a + 1 # (6)")),
+                         "b <- a + 1 # (6)")),
           p("So values are not automatically updated when their dependencies change, we have to tell R to recalculate the value instead. R can retrieve
             the value of 'a' to calculate a + 1, but it will not know if 'a' later changes value."),
           p("As mentioned above, this isn't what we see in shiny where the flow of information seems to be reversed, so how is it doing this?")
@@ -335,7 +335,7 @@ tab_understandingReactivity_ui <- function(id) {
           br(),
           p("Copy the code and run the app yourself to get an idea of what is going on. There are three reactive values (A, B and C), three reactive expressions/
             conductors (D, E and F), and two observers (G and H). If you are unsure on the difference between these three types of object, or what reactive() does
-            exactly, take a look at the 'reactive() vs observe()' tab for more information."),
+            exactly, take a look at the 'reactive() vs observe()' box in the 'Using reactivity' tab for more information."),
           br(),
           p("We can plot the reactive dependencies of our objects, in order to better understand our app and how shiny monitors each of these. The
             reactlog package was designed to do exactly this (see the box 'reactlog')."),

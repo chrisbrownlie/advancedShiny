@@ -165,10 +165,131 @@ tab_controllingReactivity_ui <- function(id) {
           width = NULL,
           solidHeader = TRUE,
           
-          p("The final way in which we might want to control reactivity is to", tags$i("restrict"), "it.")
+          p("The final way in which we might want to control reactivity is to", tags$i("restrict"), "it."),
+          
+          p("This can be particularly useful when you have a long-running reactive expression which is updating too frequently. Consider the following example:"),
+          
+          code_snippet(c("library(shiny)",
+                         "",
+                         "ui <- fluidPage(",
+                         "    numericInput('num', 'num', 5),",
+                         "    textOutput('slow_num')",
+                         ")",
+                         "",
+                         "server <- function(input, output) {",
+                         "    output$slow_num <- renderText({",
+                         "        Sys.sleep(2)",
+                         "        paste0('input$num: ', input$num)",
+                         "    })",
+                         "}",
+                         "",
+                         "shinyApp(ui, server)")),
+          
+          p("Here a long-running expression is simulated by using", code_block("Sys.sleep"), "but we can see how this would cause a problem if input$num was updated
+            very frequently:"),
+          tags$img(src = "gif/raw_input$num.gif"),
+          tags$br(),
+          p("There are two common methods for dealing with a situation like this (and shiny provides a simple function for each):", tags$i("throttling"),
+            "and", tags$i("debouncing", .noWS = "after"), ". These both work slightly differently but have the ultimate effect of restricting the number 
+            of times shiny runs the reactive expression."),
+          p("Note that this is the same technique used when shiny renders value that uses a textInput, so that it doesn't re-render on every single keystroke (see 'Laziness FTW' in section 1.2)")
+        ), # end box
+        
+        box(
+          title = "Throttle - prioritising consistency",
+          status = "warning",
+          closable = TRUE,
+          collapsible = TRUE,
+          icon = icon("car"),
+          width = 6,
+          solidHeader = TRUE,
+          
+          p("Throttling a reactive expression works in the following way:"),
+          tags$ul(
+            tags$li("When the expression is invalidated, a timer is started for a specified amount of time (no execution takes place)."),
+            tags$li("The expression can be invalidated as many times as it needs to while the timer is counting down."),
+            tags$li("When the timer reaches the specified time, the latest value of any reactive inputs is taken and the reactive expression is calculated.")
+          ),
+          p("This can be implemented as shown below (modifying our example from above):"),
+          code_snippet(c("library(shiny)",
+                         "",
+                         "ui <- fluidPage(",
+                         "    numericInput('num', 'num', 5),",
+                         "    textOutput('throttled_num')",
+                         ")",
+                         "",
+                         "server <- function(input, output) {",
+                         "    throt_num <- throttle(reactive(input$num), 5000) # 5 second throttle",
+                         "",
+                         "    output$throttled_num <- renderText({",
+                         "        Sys.sleep(2)",
+                         "        paste0('Throttled input$num: ', throt_num())",
+                         "    })",
+                         "}",
+                         "",
+                         "shinyApp(ui, server)")),
+          p("and the result of this can be seen below:"),
+          tags$img(src = "gif/throttled_input$num.gif")
+          
+        ), # end box
+        
+        box(
+          title = "Debounce - prioritising efficiency",
+          status = "warning",
+          closable = TRUE,
+          collapsible = TRUE,
+          icon = icon("basketball-ball"),
+          width = 6,
+          solidHeader = TRUE,
+          
+          p("Debouncing a reactive expression works in the following way:"),
+          tags$ul(
+            tags$li("When the expression is invalidated, a timer is started for a specified amount of time (no execution takes place)."),
+            tags$li("If the expression is invalidated while the timer is running,", tags$i("it is started again", .noWS = "after"), "."),
+            tags$li("When the timer reaches the specified time without being invalidated, the latest value of any reactive inputs is taken and
+                    the reactive expression is calculated.")
+          ),
+          p("This can beimplemented as shown below (modifying our example from above):"),
+          code_snippet(c("library(shiny)",
+                         "",
+                         "ui <- fluidPage(",
+                         "    numericInput('num', 'num', 5),",
+                         "    textOutput('debounced_num')",
+                         ")",
+                         "",
+                         "server <- function(input, output) {",
+                         "    deb_num <- debounce(reactive(input$num), 5000) # 5 second debounce",
+                         "",
+                         "    output$debounced_num <- renderText({",
+                         "        Sys.sleep(2)",
+                         "        paste0('Debounced input$num: ', deb_num())",
+                         "    })",
+                         "}",
+                         "",
+                         "shinyApp(ui, server)")),
+          p("and the result of this can be seen below:"),
+          tags$img(src = "gif/debounced_input$num.gif")
+          
+        ), # end box
+        
+        box(
+          title = "Summary",
+          status = "teal",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = 4,
+          p("So in summary:"),
+          tags$ul(
+            tags$li("Reactivity can be stopped by telling shiny to pretend a reactive object is not reactive"),
+            tags$li("This can be done with eventReactive() and observeEvent(), which are wrappers for the crucial isolate() function"),
+            tags$li("Another way to control reactivity is by making it respond to time instead of interaction, using invalidateLater() or reactivePoll()"),
+            tags$li("You can also restrict 'overexcited' reactive expressions by using debounce() and throttle()")
+          )
         )
-      )
-    )
+      ) #end column
+    ) # end fluidRow
     
   )
 

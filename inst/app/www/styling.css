@@ -1,15 +1,55 @@
 /* -------------- Section 1 - Defaults ------------ */
-/* --------------- Section 2 - Styles -------------- */
+/* --------------- Section 2 - Generic styles -------------- */
 p, li {
   font-family: Segoe UI;
   font-colour: "black";
   font-size: 16px;
 }
 
+/* --------------- Section 3 - Specific Styles -------------- */
+/* Titles etc. */
 .tab-title {
   font-size: 40px;
   color: "black";
   font-family: Segoe UI;
   text-align: center;
   padding-bottom: 1%;
+}
+
+.sidebar-title {
+  font-family: Segoe UI;
+  font-size: 25px;
+}
+
+/* treant visualisations */
+.Treant .collapse-switch {
+  height: 100% !important;
+  width: 100% !important;
+  opacity: 0 !important;
+}
+
+.treant-node {
+  width: 200px;
+  padding-top: 2%;
+}
+
+.treant-node-script .node-name {
+  border-color: black !important;
+}
+
+.node-name {
+  font-family: Segoe UI;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: cyan;
+  padding: 5%;
+}
+
+.node-desc {
+  font-family: Segoe UI;
+  font-size: 12px;
+  font-style: italic;
 }

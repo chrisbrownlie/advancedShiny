@@ -29,7 +29,7 @@ tab_info_ui <- function(id) {
           width = NULL,
           icon = icon("info-circle"),
           status = "info",
-
+          
           p("This app is designed to introduce beginner and intermediate R Shiny users to some more advanced concepts, techniques and methods.",
             "The initial goal is for this app to serve as a companion to three DfE Coffee & Coding sessions, which will talk through some of the
             ideas and hopefully introduce R Shiny developers in the department to some new shiny solutions and possibilities."),
@@ -120,8 +120,6 @@ tab_info_ui <- function(id) {
           ),
           p("with contributions from:"),
           tags$ul(
-            tags$li(tags$a("Linda Bennett", href = "mailto:linda.bennett@education.gov.uk")),
-            tags$li(tags$a("Cameron Race", href = "mailto:cameron.race@education.gov.uk"))
           ),
           p("For more info or to contribute, contact one of the above.")
         ) #end box

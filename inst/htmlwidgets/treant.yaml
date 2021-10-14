@@ -1,0 +1,13 @@
+dependencies:
+  - name: treant
+    version: 1.0.0
+    src: htmlwidgets/lib/Treant-1.0.0
+    script:
+      - Treant.js
+      - vendor/jquery.easing.js
+      - vendor/jquery.mousewheel.js
+      - vendor/raphael.js
+      - vendor/perfect-scrollbar/perfect-scrollbar.js
+    stylesheet:
+      - Treant.css
+      - vendor/perfect-scrollbar/perfect-scrollbar.css

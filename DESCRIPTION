@@ -1,7 +1,7 @@
 Package: advancedShiny
 Type: Package
 Title: Demonstrating Intermediate & Advanced Shiny Methods
-Version: 0.1.0
+Version: 0.0.1
 Authors@R:
   c(
   person("Chris", "Brownlie", email = "christopher.brownlie@education.gov.uk", role = c("aut", "cre"))
@@ -17,4 +17,5 @@ Imports:
   shiny,
   shinydashboard,
   shinydashboardPlus,
+  htmltools,
   r2d3
