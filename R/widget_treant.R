@@ -13,7 +13,7 @@ treant <- function(structure, width = NULL, height = NULL) {
   x = list(
     chart = list(
       container = "",
-      rootOrientation = "WEST",
+      rootOrientation = "NORTH",
       nodeAlign = "BOTTOM",
       connectors = list(
         type = "step"

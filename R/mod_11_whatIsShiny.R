@@ -156,17 +156,13 @@ tab_whatIsShiny_ui <- function(id) {
                     )
             ),
 
-            tags$li(code_block("digest", T),
+            tags$li(code_block("rlang", T), 
                     tags$ul(
-                      tags$li("Contains one main function -", code_block("digest::digest()"), "- which creates a cryptographical hash of any R object"),
-                      tags$li("This was used whenever a unique ID needs to be assigned to something, e.g. when a user uploads a file the temporary filename is constructed using digest"),
-                      tags$li("Was used to create keys for objects stored in the cache using", code_block("cachem", T)),
-                      tags$li("In the latest (unreleased) version of shiny (v1.6.0.900), this has been replaced by", code_block("rlang::hash()"), "which does the same thing.",
-                              code_block("rlang", T), "is an RStudio package, whereas", code_block("digest", T), "is not.")
-                      )
+                      tags$li("An RStudio package for translation between base R and tidy R. Contains functions for tidy evaluation and improvements on base object types"),
+                      tags$li("Contains a hashing function that is used whenever a unique ID needs to be assigned to something (e.g the keys for object stored using", code_block("cachem", T)),
+                      tags$li("This hashing was done using the (non-RStudio) package", code_block("digest", T), ", until shiny v1.7 (Sep 2021) when it was replaced by", code_block("rlang::hash()", T))
+                    )
             ),
-
-            tags$li(code_block("rlang", T), ": a sort of translation package for base R and tidy R. Contains functions for tidy evaluation and improvements on base object types"),
 
             tags$li(code_block("bslib", T), ": the most recently added dependency, allows usage of Bootstrap 4 (and soon 5) in shiny apps"),
 

@@ -64,9 +64,7 @@ tab_appStructure_ui <- function(id) {
           ),
           p("The best way to create an R package is beyond the scope of this app, but there are some links in the References & Further Materials
             section which cover creating an R package. If you're a DfE colleague, there was also previously a C&C talk covering exactly this, presented by
-            Mr Jacob Scott (link here)."),
-          p("Below you can see how a shiny project might be structured in practice. The text in italics gives a brief description of each element."),
-          p(tags$b("Blue boxes represent folders and can be clicked to expand and see contents. Black boxes represent individual files."))
+            Mr Jacob Scott (link here).")
           
         )
       )
@@ -85,7 +83,8 @@ tab_appStructure_ui <- function(id) {
           collapsible = TRUE,
           icon = icon("sun"),
           status = "teal",
-          
+          p("Below you can see how a shiny project might be structured in practice. The text in italics gives a brief description of each element."),
+          p(tags$b("Blue boxes represent folders and can be clicked to expand and see contents. Black boxes represent individual files.")),
           treantOutput(ns("package_directory_vis"),
                        height = "200%"),
           footer = "This interactive graph is a htmlwidget built into the advancedShiny package 
@@ -133,10 +132,55 @@ tab_appStructure_ui <- function(id) {
             "As mentioned in the disclaimer above, this is just one opinionated way of structuring and naming an app, so feel free to 
             take what works for you and ignore what doesn't. What is most important is that others can understand your
             structure and easily navigate your code.")
+        ),
+        
+        box(
+          title = "DfE-Specific",
+          status = "teal",
+          icon = icon("building"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL,
+          p("There are a few final points to bear in mind if you are a DfE colleague and the app you are developing
+            as a package is to be deployed to our internal RStudio Connect servers."),
+          h4("Deployment Pipeline"),
+          p("Our deployment pipeline determines the content you are deploying based on the contents of your project. This 
+            means that if your root folder doesn't contain either an app.R file or ui.R & server.R files, the deployment
+            will fail as it will not recognise that you are deploying a shiny app. To get around this, include an app.R
+            file that calls a function from your package. This function must return a shiny app as an object. The easiest
+            way to do this is to use", code_block("shiny::shinyAppDir()"), "in your run_app() function, so it might look
+            like this:"),
+          code_snippet(c("run_app <- function() {",
+                         "    if (interactive()) {",
+                         "        # interactive()=TRUE when function is run from the console",
+                         "",
+                         "        shiny::runApp(appDir = system.file('app', package = 'myPackage'))",
+                         "    } else {",
+                         "        # interactive()=FALSE when being sourced (i.e. when deployed)",
+                         "",
+                         "        shiny::shinyAppDir(appDir = system.file('app', package = 'myPackage'))",
+                         "    }",
+                         "}")),
+          p("and your app.R file should look like this:"),
+          code_snippet(c("pkgload::load_all() # roughly equivalent to library(myPackage)",
+                         "myPackage::run_app()")),
+          
+          h4("Dependencies"),
+          p("As with any app that is deployed to our RSConnect servers, it must be dependency-managed using", code_block("renv", T), ". Contrastingly,
+            R packages manage dependencies using roxygen documentation and a DESCRIPTION file."),
+          p("This can cause some confusion and issues when deploying apps to RSConnect, but as long as you keep on top of both methods you should be fine. When you want
+            to use a package in your app's functions, you must:"),
+          tags$ol(
+            tags$li("Import that package somewhere in your roxygen comments with @import, @importFrom or @rawNamespace, and/or specify it in your code directly with [package]::"),
+            tags$li("Add the package to your package's DESCRIPTION file, under Depends or Imports"),
+            tags$li("Run devtools::document()"),
+            tags$li("Add the package to your renv lockfile (i.e by installing the package and running renv::snapshot()")
+          )
         )
         
       ),
-      
+
       column(
         width = 6,
         
@@ -170,10 +214,27 @@ tab_appStructure_ui <- function(id) {
             function, and then pass it as an argument to each module. This list can then be used to store anything which
             might be required by multiple modules e.g. datasets, information about the user/session, theme/colour options
             that the user can change etc.")
+        ),
+        
+        box(
+          title = "Summary",
+          status = "teal",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL,
+          p("So in summary:"),
+          tags$ul(
+            tags$li("Structure your app as an R package"),
+            tags$li("Use shiny modules (see next tab)"),
+            tags$li("Use a consistent naming convention that distinguishes between the different core components of your app"),
+            tags$li("Use reactiveValues to share data between modules")
+          )
         )
-      )
-    )
-  )
+      ) # end column
+    ) # end fluidRow
+  ) # end tagList
 
 }
 
@@ -213,6 +274,10 @@ tab_appStructure_server <- function(id,
                list(
                  node("app_server.R and app_ui.R",
                       "Contain the server and UI of your app respectively",
+                      HTMLclass = "treant-node-script"),
+                 node("run_app.R",
+                      "Contains a run_app() function, that launches the shiny app by default, or optionally returns a shiny.appobj 
+                      object instead (see DfE-Specific below for why this is important)",
                       HTMLclass = "treant-node-script"),
                  node("fun_***.R", 
                       "All scripts starting fun_*** contain important functions for your app",
