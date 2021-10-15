@@ -18,4 +18,5 @@ Imports:
   shinydashboard,
   shinydashboardPlus,
   htmltools,
-  r2d3
+  r2d3,
+  pkgload
