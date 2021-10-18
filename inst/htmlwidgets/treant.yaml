@@ -7,7 +7,7 @@ dependencies:
       - jquery.easing.js
       - jquery.mousewheel.js
       - raphael.js
-      - perfect-scrollbar/perfect-scrollbar.js
+      - perfect-scrollbar.js
     stylesheet:
       - Treant.css
-      - perfect-scrollbar/perfect-scrollbar.css
+      - perfect-scrollbar.css
