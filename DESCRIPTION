@@ -19,6 +19,7 @@ Imports:
   shinydashboardPlus,
   shinyjs,
   htmltools,
+  htmlwidgets,
   r2d3,
   pkgload,
   rjson

@@ -4,8 +4,6 @@
 #' 
 #' @param structure a list of lists denoting the structure of the tree to be built
 #'
-#' @import htmlwidgets
-#'
 #' @export
 treant <- function(structure, width = NULL, height = NULL) {
 
