@@ -20,4 +20,5 @@ Imports:
   shinyjs,
   htmltools,
   r2d3,
-  pkgload
+  pkgload,
+  rjson
