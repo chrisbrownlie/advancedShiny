@@ -15,7 +15,55 @@ tab_sessionObject_ui <- function(id) {
 
   tagList(
     h3("Session Object",
-       class = "tab-title")
+       class = "tab-title"),
+    
+    fluidRow(
+      column(
+        width = 6,
+        box(
+          title = "Apps, Clients, Servers, Sessions",
+          status = "danger",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ), #end box
+        
+        box(
+          title = "Making the most of sessions",
+          status = "danger",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL,
+          p("onDisconnect, userData etc.")
+        ) #end box
+      ), #end column
+      column(
+        width = 6,
+        box(
+          title = "Under the hood of the session object",
+          status = "danger",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ), #end box
+        
+        box(
+          title = "DfE-Specific advice",
+          status = "danger",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ) #end box
+      ) #end column
+    ) #end fluidRow
   )
 
 }

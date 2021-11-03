@@ -15,7 +15,55 @@ tab_visualisationPlotly_ui <- function(id) {
 
   tagList(
     h3("Visualisation with plotly",
-       class = "tab-title")
+       class = "tab-title"),
+    
+    fluidRow(
+      column(
+        width = 6,
+        box(
+          title = "What is plotly? and what is Plotly? and what is {plotly}?",
+          status = "black",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL,
+          p("short version: Plotly created plotly which can be accessed via {plotly}")
+        ), #end box
+        
+        box(
+          title = "The full extent of interaction and customisability",
+          status = "black",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ) #end box
+      ), #end column
+      column(
+        width = 6,
+        box(
+          title = "{plotly} vs {ggplot2}",
+          status = "black",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ), #end box
+        
+        box(
+          title = "Some examples",
+          status = "black",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ) #end box
+      ) #end column
+    ) #end fluidRow
   )
 
 }

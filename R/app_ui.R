@@ -151,8 +151,6 @@ app_ui <- function() {
     
     # Include shinyjs and custom extensions
     shinyjs::useShinyjs(),
-    shinyjs::extendShinyjs(script = "shinyjs_extensions.js",
-                           functions = c("scroll_to")),
     
     # Include clipboard.js for copying code snippets
     tags$script(src = "clipboard.min.js"), # clipboard.js

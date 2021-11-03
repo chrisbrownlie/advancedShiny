@@ -15,7 +15,55 @@ tab_usingJS_ui <- function(id) {
 
   tagList(
     h3("Using Javascript",
-       class = "tab-title")
+       class = "tab-title"),
+    
+    fluidRow(
+      column(
+        width = 6,
+        box(
+          title = "What is Javascript?",
+          status = "warning",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ), #end box
+        
+        box(
+          title = "Some cool use cases for adding JS to your app",
+          status = "warning",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ) #end box
+      ), #end column
+      column(
+        width = 6,
+        box(
+          title = "How to add javascript to your app",
+          status = "warning",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ), #end box
+        
+        box(
+          title = "shinyjs",
+          status = "warning",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ) #end box
+      ) #end column
+    ) #end fluidRow
+    
   )
 
 }

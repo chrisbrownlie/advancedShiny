@@ -15,7 +15,55 @@ tab_extendingShiny_ui <- function(id) {
 
   tagList(
     h3("Extending Shiny",
-       class = "tab-title")
+       class = "tab-title"),
+    
+    fluidRow(
+      column(
+        width = 6,
+        box(
+          title = "Javascript is powerful",
+          status = "purple",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ), #end box
+        
+        box(
+          title = "shinyHelper, shinyFeedback, shinyEffects",
+          status = "purple",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ) #end box
+      ), #end column
+      column(
+        width = 6,
+        box(
+          title = "htmlwidgets",
+          status = "purple",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ), #end box
+        
+        box(
+          title = "Higher-order reactives",
+          status = "purple",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ) #end box
+      ) #end column
+    ) #end fluidRow
+    
   )
 
 }

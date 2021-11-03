@@ -15,7 +15,54 @@ tab_trackingUsage_ui <- function(id) {
 
   tagList(
     h3("Tracking Usage",
-       class = "tab-title")
+       class = "tab-title"),
+    
+    fluidRow(
+      column(
+        width = 6,
+        box(
+          title = "Why might you want to track app usage?",
+          status = "info",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ), #end box
+        
+        box(
+          title = "The manual way",
+          status = "info",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ) #end box
+      ), #end column
+      column(
+        width = 6,
+        box(
+          title = "The shinylogs way",
+          status = "info",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ), #end box
+        
+        box(
+          title = "DfE-Specific advice",
+          status = "info",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ) #end box
+      ) #end column
+    ) #end fluidRow
   )
 
 }

@@ -37,7 +37,12 @@ tab_appStructure_ui <- function(id) {
           p("Some key aspects of this structure have been chosen specifically with a complex shiny project in mind,
             so if you are only building a very simple app many of the suggestions may not apply. That said, it won't
             hurt to follow the guidelines here so that you are well prepared if your project does grow unexpectedly 
-            (as they often tend to!).")
+            (as they often tend to!)."),
+          p("This tab will make reference to", tags$i("shiny modules"), "as they are an important part of the
+            recommended workflow set out in the following two tabs. See section 1.6 for more info about them if
+            you aren't familiar."),
+          p("The package containing this very app follows the framework set out in this tab and the following one.
+            Feel free to check out the code to see an example of it in action!")
         )
       ),
       column(
@@ -200,6 +205,7 @@ tab_appStructure_ui <- function(id) {
             This is being addressed here because although it largely relates to modules, it is a design choice to
             be made when structuring your app and the method proposed here is again opinionated so feel free to
             ignore it or come up with your own solution."),
+          p(tags$i("If you have not used modules before, check the next section and then return here!")),
           p("Sharing data between modules can become tricky when working with reactive values, because although
             you can pass reactive arguments to modules and return reactive objects, it quickly becomes difficult to
             understand how and why values are updating in some modules and not others."),

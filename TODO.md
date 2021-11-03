@@ -37,14 +37,14 @@
     - Using invalidateLater & reactivePoll
     - Using isolate & req
 
-- [ ] Structuring an app (CB)
+- [x] Structuring an app (CB)
     - As a package
     - File naming conventions
     - Workflow (using roxygen2, devtools, usethis etc.)
     - Making use of reactivevalues not being copy-on-modify
     - Using modules (briefly mention, covered in next tab)
 
-- [ ] Shiny modules (CB)
+- [x ] Shiny modules (CB)
     - The 1000 button problem
     - Namespacing
     - Using modules effectively

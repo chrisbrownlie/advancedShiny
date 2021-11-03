@@ -37,7 +37,8 @@ tab_whatIsShiny_ui <- function(id) {
           unless the underlying files are explicitly changed.
           A web app, on the other hand, is a full computer program (application) which can be accessed through a web browser.
           The benefits of this mean that web apps are far more flexible and dynamic, responding to user actions and rendering
-            pages 'on the fly'. The vast majority of what we call 'websites' are in fact web apps (Google, Facebook etc.)."),
+            pages 'on the fly'. The two terms have more or less become synonymous in recent years, so the vast majority of 
+            what we call websites are technically web apps (search engines, social media, news sites etc.)."),
           p("The front end of most web apps are developed using HTML, Javascript and CSS, as these are supported by pretty
           much all web browsers. So the short answer to 'What is shiny?', is '", tags$i(strong("an R to {HTML-Javascript-CSS} translator", .noWS = "outside"), .noWS = "outside"), "'.
           The magic of being able to write R code which gets transformed into a web app written in a completely different language,

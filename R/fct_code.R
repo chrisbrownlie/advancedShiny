@@ -22,6 +22,19 @@ code_snippet <- function(vec) {
   )
 }
 
+#' Convert code to code snippet
+#' 
+#' @param script the R script to convert to a code snippet
+#' 
+#' @return inserts the code necessary as a code snippet below the current selection
+add_snippet <- function(script = system.file("conversion_staging.R", package = "advancedShiny")) {
+  
+  code <- readLines(script)
+  
+  snippet <- paste0('code_snippet(c("', paste(code, collapse = '",\n"'), '")\n)')
+  
+  rstudioapi::insertText(text = snippet)
+}
 
 #' Render code i.e. package (or function) name
 #'

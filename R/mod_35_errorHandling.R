@@ -15,7 +15,55 @@ tab_errorHandling_ui <- function(id) {
 
   tagList(
     h3("Error Handling & Debugging",
-       class = "tab-title")
+       class = "tab-title"),
+    
+    fluidRow(
+      column(
+        width = 6,
+        box(
+          title = "With base R",
+          status = "orange",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL,
+          p("tryCatch(), withRestarts(), stop(), warning(), message(), browser()")
+        ), #end box
+        
+        box(
+          title = "With {shiny}",
+          status = "orange",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ) #end box
+      ), #end column
+      column(
+        width = 6,
+        box(
+          title = "With {testthat} and {shinytest}",
+          status = "orange",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ), #end box
+        
+        box(
+          title = "With {whereami}",
+          status = "orange",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ) #end box
+      ) #end column
+    ) #end fluidRow
   )
 
 }

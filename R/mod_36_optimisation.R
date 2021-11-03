@@ -15,7 +15,55 @@ tab_optimisation_ui <- function(id) {
 
   tagList(
     h3("Optimisation",
-       class = "tab-title")
+       class = "tab-title"),
+    
+    fluidRow(
+      column(
+        width = 6,
+        box(
+          title = "Optimising using {profvis}",
+          status = "success",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ), #end box
+        
+        box(
+          title = "Caching in shiny apps and {memoise}",
+          status = "success",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ) #end box
+      ), #end column
+      column(
+        width = 6,
+        box(
+          title = "Asynchronous programming with {promises} and {future}",
+          status = "success",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL
+        ), #end box
+        
+        box(
+          title  = "Some common optimisations",
+          status = "success",
+          icon = icon("info-circle"),
+          solidHeader = TRUE,
+          closable = TRUE,
+          collapsible = TRUE,
+          width = NULL,
+          p("e.g. multiple tabs, paste>sprintf, data.frame>data.table, grepl^>startsWith, vectorisation/de-looping, use SQL databases, {Rcpp}, {minifyr}")
+        ) #end box
+      ) #end column
+    ) #end fluidRow
   )
 
 }
