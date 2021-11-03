@@ -43,6 +43,8 @@ treant <- function(structure, width = NULL, height = NULL) {
 #' @param name the name of the node
 #' @param desc the description of the node
 #' @param children a list of children nodes
+#' 
+#' @export
 node <- function(name, desc, children = NULL, ...) {
   list(
     text = list(name = name,
