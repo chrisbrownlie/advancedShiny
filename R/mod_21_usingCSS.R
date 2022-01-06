@@ -10,13 +10,12 @@
 #'
 #' @export
 tab_usingCSS_ui <- function(id) {
-
   ns <- NS(id)
 
   tagList(
     h3("Using CSS",
-       class = "tab-title"),
-    
+      class = "tab-title"
+    ),
     fluidRow(
       column(
         width = 6,
@@ -28,16 +27,17 @@ tab_usingCSS_ui <- function(id) {
           closable = TRUE,
           collapsible = TRUE,
           width = NULL,
-          
           p("In Section 1.1 'What is shiny, actually?', I described shiny as 'an R to {HTML-Javascript-CSS} translator', as
             these are the three core components of the front-end of most modern web apps. One way to decribe this triad is: HTML
-            (HyperText Markup Language) provides the building blocks for your UI; Javascript determines what the building 
+            (HyperText Markup Language) provides the building blocks for your UI; Javascript determines what the building
             blocks do and CSS (Cascading Style Sheets) determines what the blocks look
             like. This is perhaps an oversimplification (disclaimer: I am not a front-end dev or web designer!), but I think it
             gives a good practical understanding of how the three interact."),
-          p("In shiny, the HTML code will mostly be generated using shiny functions such as", code_block("fluidPage()"), code_block("p()"),
-            "and the various", code_block("*input()"), "and", code_block("render*()"), "functions."),
-          p("The javascript in the app comes from many places, including the shiny package itself and this is discussed in 
+          p(
+            "In shiny, the HTML code will mostly be generated using shiny functions such as", code_block("fluidPage()"), code_block("p()"),
+            "and the various", code_block("*input()"), "and", code_block("render*()"), "functions."
+          ),
+          p("The javascript in the app comes from many places, including the shiny package itself and this is discussed in
             detail in other tabs. The CSS that comes bundled with shiny gives a generic, bland look and feel to the app so
             in order to spice things up, you must add your own CSS."),
           p("CSS can be used to specify the color, shape, size, shadow, background colour, spacing, padding and many other attributes of
@@ -48,8 +48,8 @@ tab_usingCSS_ui <- function(id) {
           p("The pane on the left shows the HTML of the page and the pane on the right shows some of the styles specified by the CSS of the
             page."),
           tags$img(src = "img/html_css_inspected.png", width = "100%")
-        ), #end box
-        
+        ), # end box
+
         box(
           title = "{shinydashboard(Plus)} vs {bslib}/{thematic}",
           status = "success",
@@ -58,21 +58,21 @@ tab_usingCSS_ui <- function(id) {
           closable = TRUE,
           collapsible = TRUE,
           width = NULL,
-          
           p(tags$i("Note: this box is not technically about CSS but what is discussed below is an important design choice for the developer
                    of a shiny app (as is CSS).")),
-          
           p("When deciding what your app will look like, CSS gives you fine-tuned control over each object in your UI. Before you
             reach this point though there is often a key decision to be made: to dashboard or not to dashboard."),
-          p("There are essentially limitless ways to structure a shiny app, as you could always even write the custom HTML to achieve
+          p(
+            "There are essentially limitless ways to structure a shiny app, as you could always even write the custom HTML to achieve
             the layout you desire, but typically (in my experience at least) it will usually boil down to whether a dashboard structure
-            makes sense or not. If it does, you can make use of the", code_block("shinydashboard", T), "and", 
-            code_block("shinydashboardPlus", T), "packages to speed up your development, if not you will probably use a vanilla shiny", 
+            makes sense or not. If it does, you can make use of the", code_block("shinydashboard", T), "and",
+            code_block("shinydashboardPlus", T), "packages to speed up your development, if not you will probably use a vanilla shiny",
             code_block("fluidPage()"), "or", code_block("navbarPage()"), "layout and have more design choices to make about how to structure
-            pages and navigation etc."),
-          p("To clarify, this advancedShiny app uses a dashboard layout - a header, a body (central pane) and a sidebar (navigation pane) which 
-            allows you to switch between different named tabs, each one containing related information in structured boxes/sections. A 
-            non-dashboard layout may consist of a single page, or multiple pages where the layout differs depending on which page is currently 
+            pages and navigation etc."
+          ),
+          p("To clarify, this advancedShiny app uses a dashboard layout - a header, a body (central pane) and a sidebar (navigation pane) which
+            allows you to switch between different named tabs, each one containing related information in structured boxes/sections. A
+            non-dashboard layout may consist of a single page, or multiple pages where the layout differs depending on which page is currently
             visible, for example."),
           p("The shinydashboard package can be used (and has been used here) to get a dashboard-style look and feel to the app, providing
             functions for", code_block("dashboardPage()"), code_block("dashboardHeader()"), code_block("dashboardBody()"), "etc. Additionally
@@ -84,10 +84,61 @@ tab_usingCSS_ui <- function(id) {
             4 or 5, where shiny defaults to Bootstrap 3."),
           p("As", code_block("bslib", T), "is (like shiny) an RStudio package, it benefits from seamless integration with base shiny. All
             shiny's top-level layout functions (e.g. fluidPage), have a 'theme' parameter. So you can simply supply a function from bslib
-            as an argument to that. Take the example below:")
-          
-        ) #end box
-      ), #end column
+            as an argument to that. Take the example app below (adapted from an RStudio example app):"),
+          code_snippet(c(
+            "library(shiny)",
+            "",
+            "ui <- navbarPage('Navbar!',",
+            "                 tabPanel('Plot',",
+            "                          sidebarLayout(",
+            "                            sidebarPanel(",
+            "                              radioButtons('plotType', 'Plot type',",
+            "                                           c('Scatter'='p', 'Line'='l')",
+            "                              )",
+            "                            ),",
+            "                            mainPanel(",
+            "                              plotOutput('plot')",
+            "                            )",
+            "                          )",
+            "                 ),",
+            "                 tabPanel('Summary'),",
+            "                 navbarMenu('More')",
+            ")",
+            "",
+            "server <- function(input, output, session) {",
+            "  ",
+            "  output$plot <- renderPlot({",
+            "    plot(cars, type=input$plotType)",
+            "  })",
+            "  ",
+            "}",
+            "",
+            "shinyApp(ui, server)"
+          )),
+          p("This app has the basic shiny styling (see sample below):"),
+          tags$img(src = "img/simple_app_notheme.png",
+                   width = "100%"),
+          p("But by using", code_block("bslib", T), "you can change the look and feel with just one line of code,
+            added to the", code_block("navbarPage()"), "call:"),
+          code_snippet(c(
+            "...",
+            "ui <- navbarPage('Navbar!',",
+            "                 theme = bslib::bs_theme(bootswatch = 'lux') # add theme",
+            "                 tabPanel('Plot',",
+            "                          ..."
+          )),
+          p("Resulting in app that looks slightly more appealing:"),
+          tags$img(src = "img/simple_app_luxtheme.png",
+                   width = "100%"),
+          p("Admittedly, in this example app the changes aren't radical (mostly just the font, some colouring and 
+            the behaviour of the navbar buttons), but for more complex apps you can see how powerful it would be 
+            to overhaul the general look and feel with a single line of code."),
+          p("Additionally, you specify your own custom theme with the various arguments to", code_block("bs_theme()"),
+            "as opposed to a pre-made bootswatch theme (like the example above). If you choose this route you have far 
+            more control and can even adjust your theme using a real time editor via the", code_block("bs_themer()"), 
+            "function.")
+        ) # end box
+      ), # end column
       column(
         width = 6,
         box(
@@ -97,9 +148,18 @@ tab_usingCSS_ui <- function(id) {
           solidHeader = TRUE,
           closable = TRUE,
           collapsible = TRUE,
-          width = NULL
-        ), #end box
-        
+          width = NULL,
+          p("There are three main ways you can add custom styles to your app:"),
+          h4("Separate CSS file"),
+          p("This is the best way to add custom CSS to your app..."),
+          hr(),
+          h4("Per-element styling"),
+          p("A quicker but far more messy way..."),
+          hr(),
+          h4("Dynamically add CSS"),
+          p("This is far rarer and should only be used in specific cases...")
+        ), # end box
+
         box(
           title = "Getting {sass}y",
           status = "success",
@@ -107,12 +167,19 @@ tab_usingCSS_ui <- function(id) {
           solidHeader = TRUE,
           closable = TRUE,
           collapsible = TRUE,
-          width = NULL
-        ) #end box
-      ) #end column
-    ) #end fluidRow
-  )# end tagList
-
+          width = NULL,
+          
+          p("Once you have mastered adding CSS to your app, you can begin to make use of SASS (Syntactically
+            Awesome Style Sheets) - a CSS extension language described as 'CSS with superpowers'. All SASS is, 
+            is a way to make managing large/complex CSS sheets easier, by adding various useful things such as:
+            allowing you to set variables, nest your styles and use partial styles (among other things). SASS
+            then generates the final CSS stylesheet automatically. Helpfully, there is an R package allowing you 
+            to make use of SASS in your shiny apps with almost no additional effort required - the package is called", 
+            code_block("sass", T))
+        ) # end box
+      ) # end column
+    ) # end fluidRow
+  ) # end tagList
 }
 
 #' Using CSS module server
@@ -128,7 +195,6 @@ tab_usingCSS_ui <- function(id) {
 #' @export
 tab_usingCSS_server <- function(id,
                                 appData) {
-
   moduleServer(
     id,
     function(input,
@@ -138,8 +204,6 @@ tab_usingCSS_server <- function(id,
 
       # Alias the namespace function for ease of use
       ns <- session$ns
-
     }
   )
-
 }

@@ -1,7 +1,6 @@
 library(shiny)
 
 ui <- navbarPage("Navbar!",
-                 theme = bslib::bs_theme(bootswatch = "lux"),
                  tabPanel("Plot",
                           sidebarLayout(
                             sidebarPanel(
@@ -14,38 +13,16 @@ ui <- navbarPage("Navbar!",
                             )
                           )
                  ),
-                 tabPanel("Summary",
-                          verbatimTextOutput("summary")
-                 ),
-                 navbarMenu("More",
-                            tabPanel("Table",
-                                     DT::dataTableOutput("table")
-                            ),
-                            tabPanel("About",
-                                     fluidRow(
-                                       column(6,
-                                              p("About..."),
-                                       ),
-                                       column(3,
-                                              p("etc....")
-                                       )
-                                     )
-                            )
-                 )
+                 tabPanel("Summary"),
+                 navbarMenu("More")
 )
 
 server <- function(input, output, session) {
+  
   output$plot <- renderPlot({
     plot(cars, type=input$plotType)
   })
   
-  output$summary <- renderPrint({
-    summary(cars)
-  })
-  
-  output$table <- DT::renderDataTable({
-    DT::datatable(cars)
-  })
 }
 
 shinyApp(ui, server)
