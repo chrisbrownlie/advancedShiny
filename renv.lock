@@ -155,10 +155,10 @@
     },
     "httpuv": {
       "Package": "httpuv",
-      "Version": "1.6.4",
+      "Version": "1.6.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "3955f7fdf9ffcfd33627d351e69eae0f"
+      "Hash": "65e865802fe6dd1bafef1dae5b80a844"
     },
     "jquerylib": {
       "Package": "jquerylib",
