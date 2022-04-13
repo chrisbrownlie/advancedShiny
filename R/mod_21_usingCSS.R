@@ -149,15 +149,66 @@ tab_usingCSS_ui <- function(id) {
           closable = TRUE,
           collapsible = TRUE,
           width = NULL,
-          p("There are three main ways you can add custom styles to your app:"),
-          h4("Separate CSS file"),
-          p("This is the best way to add custom CSS to your app..."),
+          p("There are three main ways you can add custom styles to your app. This tutorial will not cover CSS syntax, but will assume
+            you have a working knowledge of how to style HTML elements using CSS."),
+          h4("1. Separate CSS file"),
+          p("This is the best way to add custom CSS to your app. It involves keeping all your styling contained into a single file
+            or collection of files, away from the logic of your app. It also makes it far easier to maintain consistent styles across
+            your entire app. To include a file in your app, you should store it in the www/ folder (see 1.5 - Structuring an app)."),
+          p("Assuming you have created a CSS file called 'styles.css' and stored it in your www/ folder, you then simply need to add
+            the following code to your UI:"),
+          code_snippet(c("tags$head(tags$link(href = 'styles.css', rel = 'stylesheet', type = 'text/css'))")),
+          p("This will make any styles available to your app."),
           hr(),
           h4("Per-element styling"),
-          p("A quicker but far more messy way..."),
+          p("A quicker but far more messy way to style an element is to include it directly, using the 'style' argument to the element (
+            where it is available). For example, it can be used on a 'div' to style everything within it:"),
+          code_snippet(c("tags$div(",
+                         "    style = 'font-size:40px; font-weight:bold;',",
+                         "    p('This text will be large and bold')",
+                         ")")),
+          p("Alternatively, you can include class definitions using", code_block("tags$style()"), ", e.g.:"),
+          code_snippet(c("tags$style('",
+                       "    .blue-stuff {",
+                       "        color: blue;",
+                       "    }",
+                       "    ",
+                       "    .red-stuff {",
+                       "        color: red;",
+                       "    }'",
+                       ")")),
           hr(),
           h4("Dynamically add CSS"),
-          p("This is far rarer and should only be used in specific cases...")
+          p("This is rarer and should only be used in specific cases, but the shinyjs package can be used to add a class to an object
+            after the app has been launched. See example below (using tags$style() css from above):"),
+          code_snippet(c("ui <- fluidPage(",
+                         "    shinyjs::useShinyjs(),",
+                         "    tags$style('",
+                         "        .blue-stuff {",
+                         "            color: blue;",
+                         "        }",
+                         "        ",
+                         "        .red-stuff {",
+                         "            color: red;",
+                         "        }'",
+                         "    ),",
+                         "    p('This is the text', id = 'my-text'),",
+                         "    actionButton('red', 'Make red'),",
+                         "    actionButton('blue', 'Make blue')",
+                         ")",
+                         "",
+                         "server <- function(input, output) {",
+                         "    observeEvent(input$red, {",
+                         "        shinyjs::removeClass(id = 'my-text', class = 'blue-stuff')",
+                         "        shinyjs::addClass(id = 'my-text', class = 'red-stuff')",
+                         "    })",
+                         "    observeEvent(input$blue, {",
+                         "        shinyjs::removeClass(id = 'my-text', class = 'red-stuff')",
+                         "        shinyjs::addClass(id = 'my-text', class = 'blue-stuff')",
+                         "    })",
+                         "}",
+                         "",
+                         "shinyApp(ui = ui, server = server)"))
         ), # end box
 
         box(
@@ -175,7 +226,9 @@ tab_usingCSS_ui <- function(id) {
             allowing you to set variables, nest your styles and use partial styles (among other things). SASS
             then generates the final CSS stylesheet automatically. Helpfully, there is an R package allowing you 
             to make use of SASS in your shiny apps with almost no additional effort required - the package is called", 
-            code_block("sass", T))
+            code_block("sass", T)),
+          p("View the code at the top of the app_ui() function for this package to get an idea of how to use", 
+            code_block("sass", T), "in this proposed workflow.")
         ) # end box
       ) # end column
     ) # end fluidRow

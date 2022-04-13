@@ -28,7 +28,7 @@ tab_appStructure_ui <- function(id) {
           width = NULL,
           closable = FALSE,
           collapsible = TRUE,
-          icon = icon("warning"),
+          icon = icon("exclamation"),
           status = "warning",
           
           p("This tab will give you some ideas and tips on how to structure an R Shiny app. The suggestions
@@ -55,7 +55,7 @@ tab_appStructure_ui <- function(id) {
           width = NULL,
           closable = TRUE,
           collapsible = TRUE,
-          icon = icon("house"),
+          icon = icon("box"),
           status = "teal",
           
           p("The first piece of advice is: structure your project as an R package. There are many reasons for doing this,
