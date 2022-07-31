@@ -31,10 +31,10 @@ tab_info_ui <- function(id) {
           status = "info",
           
           p("This app is designed to introduce beginner and intermediate R Shiny users to some more advanced concepts, techniques and methods.",
-            "The initial goal is for this app to serve as a companion to three DfE Coffee & Coding sessions, which will talk through some of the
-            ideas and hopefully introduce R Shiny developers in the department to some new shiny solutions and possibilities."),
+            "The initial goal is for this app to serve as a tutorial and cheatsheet for shiny and hopefully introduce R developers in the 
+            department to some new shiny solutions and possibilities."),
 
-          p("This project (the app and accompanying talks) will", tags$b("not"), "cover every single thing that R Shiny has to offer. Additionally,
+          p("This project will", tags$b("not"), "cover every single thing that R Shiny has to offer. Additionally,
             although the name implies all topics are at least intermediate level, some are more straightforward and every effort will be made to
             ensure the content can be understood by those who are fairly new to R Shiny."),
 

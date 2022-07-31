@@ -27,7 +27,18 @@ tab_attaliverse_ui <- function(id) {
           solidHeader = TRUE,
           closable = TRUE,
           collapsible = TRUE,
-          width = NULL
+          width = NULL,
+          
+          p("In the previous tab, I introduced shinyjs as one of the best ways to get started using Javascript in your
+            shiny apps. This package was created by an R guru by the name of Dean Attali. Dean runs an R Shiny consulting
+            firm and has created several R packages specifically to enhance shiny apps and fill some of the gaps in base
+            shiny functionality."),
+          p("This collection of packages do not have an official name so I've (semi-seriously) referred to them as the 
+            'Attali-verse'. There are several packages, each with their own specific use case - and I personally have found 
+            some of them invaluable when creating interactive, user-friendly apps."),
+          p("This tab introduces some of the most useful packages, because I believe that all shiny developers should at
+            least be aware of them as they may make your life much, much easier."),
+          p("See", tags$a("Dean's Github", href = "https://github.com/daattali"), "for more or to see all other packages.")
         ), #end box
         
         box(
